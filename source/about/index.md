@@ -1,9 +1,12 @@
 ---
-title: 关于
+layout: docs
+title: 关于橙子冰棒
+seo_title: 关于
 date: 2025-11-01 14:13:47
+top_meta: false
+bottom_meta: false
+sidebar: []
 ---
-
-# 关于橙子冰棒
 
 橙子冰棒，一名普通的中学生。二刺螈，发量充足的程序猿。
 
