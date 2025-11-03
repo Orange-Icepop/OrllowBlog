@@ -4,7 +4,7 @@ custom_css:
   navbar:
     height: 64px
     width: auto
-    effect: [shadow, floatable,blur]
+    effect: [shadow, floatable, blur]
   sidebar:
     effect: [shadow, blur] # set either floatable or blur
   body:
@@ -28,26 +28,29 @@ custom_css:
 
 navbar:
   visible: auto
-  logo: images/wordicon.webp
+  logo:
+    img:
+    icon:
+    title: ORLLOW.CN
   menu:
-    - name: 博客
+    - name: 主页
       icon: fa-solid fa-rss
       url: /
     - name: 分类
       icon: fa-solid fa-folder-open
-      url: categories/
+      url: /categories/
     - name: 标签
       icon: fa-solid fa-tags
-      url: tags/
+      url: /tags/
     - name: 归档
       icon: fa-solid fa-archive
-      url: archives/
+      url: /archives/
     - name: 友链
       icon: fa-solid fa-link
-      url: friends/
+      url: /friends/
     - name: 关于
       icon: fa-solid fa-info-circle
-      url: about/
+      url: /about/
     - name: 夜晚模式
       icon: fas fa-moon
       toggle: darkmode
@@ -62,12 +65,36 @@ site_footer:
   copyright: '[Copyright © Orange-Icepop](/)'
 
 cover:
-  height_scheme: half
-  scheme: focus
+  title: '橙子冰棒的博客'
+  subtitle: 'MC玩家一枚兼发量很大的程序员'
+  height_scheme: full
+  layout_scheme: focus
   display:
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
+  features:
+    - name: 博客
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f4f0.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
+      url: /
+    - name: 存档
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
+      url: /achieves/
+    - name: LSL
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
+      url: https://github.com/Orange-Icepop/LSL
+
+article:
+  body:
+    top_meta: [author, category, date, counter]
+    meta_library:
+      author:
+        avatar: /images/author.webp
+        name: Orange-Icepop
+        url: /about/
 
 sidebar:
   position: right # left right
@@ -80,7 +107,7 @@ sidebar:
     blogger:
       class: blogger
       display: [desktop]
-      avatar: images/author.webp
+      avatar: /images/author.webp
       shape: circle
       url: /about/
       title: 橙子冰棒
@@ -118,9 +145,9 @@ comments:
 plugins:
   parallax:
     enable: true
-    position: fixed
+    position: cover
     shuffle: false
     images:
-      - images/background.webp
+      - /images/background.webp
   darkmode:
     enable: true

@@ -1,0 +1,15 @@
+- group: MC好友 # 分组标题
+  description: 和我一起玩MC的朋友们 # 分组描述
+  items:
+    - title: minecraftLYC # 名称
+      avatar: # 头像
+      url: https://www.lycham.cc # 链接
+      screenshot: # 截图
+      keywords: # 关键词
+      description: 喜欢玩Debian on ARM服务器的家伙 # 描述
+    - title: # 名称
+      avatar: # 头像
+      url: # 链接
+      screenshot: # 截图
+      keywords: # 关键词
+      description: # 描述
