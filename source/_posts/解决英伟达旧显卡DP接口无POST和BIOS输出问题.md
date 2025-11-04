@@ -1,7 +1,7 @@
 ---
 title: 解决英伟达旧显卡DP接口无POST和BIOS输出问题
-date: 2025-02-11 16:39:46
-category:
+date: 2025-02-11 21:55:30
+categories:
   - 硬件
 tags:
   - 图拉丁
@@ -15,15 +15,16 @@ tags:
 
 前段时间整了一台x99的电脑（华南x99-TF，公版AMI BIOS），搭配Tesla M40显卡，打算跑服务器兼AI，整了一张几十块钱的Quadro K600做显示输出。然后发现功耗和噪音都太高了，就准备直接变成主力机。
 
-{% note info::在遇到这个问题之前，也出现过症状一样的问题，不一样的是DVI接口也发病，最后打开了安全启动以同时关掉CSM和打开UEFI解决的问题。可以看这篇文章：[解决英伟达旧显卡开启UEFI后无POST和BIOS输出问题](/)。 %}
+{% note info::在遇到这个问题之前，也出现过症状一样的问题，不一样的是DVI接口也发病，最后打开了安全启动以同时关掉CSM和打开UEFI解决的问题。可以看这篇文章：[解决英伟达旧显卡开启UEFI后无POST和BIOS输出问题](/2025/02/11/解决英伟达旧显卡开启UEFI后不显示POST与BIOS画面的问题/)。 %}
 
 由于卧室里的显示器只有一个HDMI，剩下的只有一个DP和一个Mini DP，刚好K600上面的2号口也是DP，所以就淘了一根拆机DP线，插上，开机，问题复现。
 
 ## 试过的方案
 
-和之前DVI出问题的时候一样，先试了打英伟达官方的[DP补丁](https://www.nvidia.com/en-us/drivers/nv-uefi-update-x64/)，没用。
+以下方案不一定有用，但是万一其中哪个是前置条件呢？
 
-然后上[TechPowerUp](https://www.techpowerup.com/vgabios/)找了最新的VBIOS，用[NVFLASH](https://www.techpowerup.com/download/nvidia-nvflash/)刷进去，然并卵。
+- 打英伟达官方的[DP补丁](https://www.nvidia.com/en-us/drivers/nv-uefi-update-x64/)
+- 上[TechPowerUp](https://www.techpowerup.com/vgabios/)找最新的当前显卡的VBIOS，用[NVFLASH](https://www.techpowerup.com/download/nvidia-nvflash/)刷进去
 
 ## 最终解决方案
 
