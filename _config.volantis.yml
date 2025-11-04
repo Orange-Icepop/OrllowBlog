@@ -81,7 +81,7 @@ cover:
     - name: 存档
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
-      url: /achieves/
+      url: /archieves/
     - name: LSL
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
@@ -151,3 +151,6 @@ plugins:
       - /images/background.webp
   darkmode:
     enable: true
+
+category_map:
+  硬件: hardware
