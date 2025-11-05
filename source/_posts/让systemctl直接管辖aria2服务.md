@@ -6,6 +6,7 @@ categories:
 tags: 
   - Linux
   - Aria2
+  - systemctl
 ---
 
 这篇省不了流，省了你也不知道怎么解决。
