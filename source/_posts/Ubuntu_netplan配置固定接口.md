@@ -1,6 +1,6 @@
 ---
 title: Ubuntu netplan配置固定接口
-date: 2025-11-05T16:35:12+08:00
+date: 2025-07-10T21:43:12+08:00
 categories: 
   - 软件
 tags: 
