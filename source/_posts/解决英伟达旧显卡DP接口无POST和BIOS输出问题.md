@@ -40,7 +40,7 @@ tags:
 
 接下来的操作是重点。下载GOPUpd工具并解压出来（链接会稍后贴上），顾名思义这个工具就是用来更新GOP版本的。需要注意的是，该工具仅支持Windows且依赖Python环境，因此需要预先安装Python。确认有没有装Python只需要打开命令行（win+R键，输入cmd，回车），输入如下命令：
 
-``` bash cmd
+``` bash
 python --version
 ```
 
@@ -62,7 +62,7 @@ python --version
 
 然后，输入以下命令：
 
-``` bash cmd
+``` bash
 .\nvflash --protectoff
 ```
 
@@ -70,7 +70,7 @@ python --version
 
 接下来，输入如下命令开始刷入VBIOS。在此期间，切记不要关机或是断电，否则显卡会由于VBIOS不完整而无法显示，俗称变砖。
 
-``` bash cmd
+``` bash
 .\nvflash -6 [VBIOS文件名]
 ```
 

@@ -8,7 +8,7 @@ custom_css:
   sidebar:
     effect: [shadow, blur] # set either floatable or blur
   body:
-    effect: [ shadow ] # [shadow, floatable, blur]
+    effect: [shadow, blur] # [shadow, floatable, blur]
     highlight:
       language: true # show language of codeblock
       copy_btn: true
