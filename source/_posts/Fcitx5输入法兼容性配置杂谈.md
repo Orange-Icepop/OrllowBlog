@@ -52,3 +52,17 @@ JetBrains一系的IDE都是用Java写的，正是这一点造就了它强大的�
 2025.3这个版本已经进公开测试版了，急的可以先从AUR下一个JetBrains Toolbox装一装测试版，其他人就等一手正式版更新吧，AUR应该会立马跟上，我也会到时候更新。
 
 在XWAYLAND模式下，把XMODIFIERS=@im=fcitx加进应用程序的环境变量里就好了。
+
+---
+
+#### 2025/11/14更新
+
+JetBrains Rider 2025.3版本已经能够在原生Wayland模式下使用中文fcitx5输入法。
+
+帮助-编辑自定义虚拟机选项，在尾部添加一行：
+
+```ini
+-Dawt.toolkit.name=WLToolkit
+```
+
+然后重启IDE即可。
