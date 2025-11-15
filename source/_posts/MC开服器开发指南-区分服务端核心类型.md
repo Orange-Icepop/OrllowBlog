@@ -5,7 +5,7 @@ categories:
   - 编程
 tags:
   - Minecraft
-  - 开服器
+  - Minecraft开服器
   - C#
   - Java
 ---
