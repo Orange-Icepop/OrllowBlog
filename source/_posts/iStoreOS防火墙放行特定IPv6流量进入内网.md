@@ -62,13 +62,13 @@ NAS和网站的协议基本上都是TCP，因此实际上UDP不是必须的。
 
 EUI-64简单来讲就是一个国际标准规则，使用MAC地址生成IPv6地址（二进制形式）的末64位，这样只要不更换网口，IPv6地址的末64位就永远是固定的，让网关能够通过后缀匹配来识别出到服务器的流量与其它非法访问流量。
 
-我们假设MAC地址为 7F:1A:2B:3C:4D:5E（十六进制）。
+我们假设MAC地址为 `7F:1A:2B:3C:4D:5E`（十六进制）。
 
-第一步，在正中间插入FF:FE，即7F:1A:2B:FF:FE:3C:4D:5E。
+第一步，在正中间插入`FF:FE`，即`7F:1A:2B:FF:FE:3C:4D:5E`。
 
-第二步，翻转第一个字节的第七位（称为U/L位），也就是最开始的两位十六进制数。本例中的第一个字节是7F，其二进制形式为01111111。翻转第七位后是7D（01111101）。
+第二步，翻转第一个字节的第七位（称为`U/L`位），也就是最开始的两位十六进制数。本例中的第一个字节是`7F`，其二进制形式为`01111111`。翻转第七位后是`7D`（`01111101`）。
 
-最终的接口ID即为7D:1A:2B:FF:FE:3C:4D:5E。在OpenWRT中，我们可以使用双冒号开头来表示后缀匹配，即::7d1a:2bff:fe3c:4d5e。
+最终的接口ID即为`7D:1A:2B:FF:FE:3C:4D:5E`。在OpenWRT中，我们可以使用双冒号开头来表示后缀匹配，即`::7d1a:2bff:fe3c:4d5e`。
 
 除了EUI-64，还有一种方案是直接配置静态后缀，最终效果和EUI-64是一样的，总体上更接近IPv4的内网配置，但是单一性保证相对就没有那么高。
 
@@ -76,7 +76,7 @@ EUI-64简单来讲就是一个国际标准规则，使用MAC地址生成IPv6地�
 
 Windows自从很久之前开始就开始使用随机临时IPv6地址机制来保护系统安全，作为客户端的时候几乎是无感的免费安全性保证，而这种时候反而成了累赘。
 
-在管理员权限的Powershell中，执行Get-NetIPv6Protocol命令，输出应该类似如下：
+在管理员权限的Powershell中，执行`Get-NetIPv6Protocol`命令，输出应该类似如下：
 
 ```bash
 DefaultHopLimit : 128
@@ -101,7 +101,7 @@ TemporaryRegenerateTime : 00:00:05
 MaxTemporaryDesyncTime : 00:10:00
 DeadGatewayDetection : Enabled
 ```
-主要关注RandomizeIdentifiers和UseTemporaryAddresses两个参数，将它们都改为Disabled：
+主要关注`RandomizeIdentifiers`和`UseTemporaryAddresses`两个参数，将它们都改为Disabled：
 
 ```powershell
 Set-NetIPv6Protocol -UseTemporaryAddresses Disabled
@@ -114,7 +114,7 @@ Set-NetIPv6Protocol -RandomizeIdentifiers Disabled
 
 各个Linux发行版使用的网络接口管理器各不相同，很难在一篇文章里一次性讲清楚。这里只讲解新版Ubuntu使用的netplan前端+NetworkManager后端的实现方案。
 
-netplan的配置文件在/etc/netplan/目录下的yaml文件中。以下是我的配置示例：
+netplan的配置文件在`/etc/netplan/`目录下的yaml文件中。以下是我的配置示例：
 
 ```yaml
 network:
@@ -131,7 +131,7 @@ network:
         via: "192.168.2.1"
 ```
 
-其中enp2s0代表的是以太网接口名称。在它的下一级（与match键同级）添加ipv6-address-generation: "eui64"：
+其中enp2s0代表的是以太网接口名称。在它的下一级（与match键同级）添加`ipv6-address-generation: "eui64"`：
 
 ```yaml
 network:
@@ -149,10 +149,10 @@ network:
         via: "192.168.2.1"
 ```
 
-然后输入sudo netplan try检查有没有问题。没有问题的话，会提示是否应用，按enter即可应用。
+然后输入`sudo netplan try`检查有没有问题。没有问题的话，会提示是否应用，按enter即可应用。
 
 ## 默认阻断
 
-写完这篇文章前面部分不久之后，我发现网关配置里的默认区域转发配置不知道为啥被动过了，DENY all others变成了ACCEPT all others，导致有人进了我的ssh关掉了MC服务器（谁这么恶趣味啊），然后找了半天没找到怎么调回去……最后发现只要把默认转发配置改成拒绝就好了：
+写完这篇文章前面部分不久之后，我发现网关配置里的默认区域转发配置不知道为啥被动过了，`DENY all others`变成了`ACCEPT all others`，导致有人进了我的ssh关掉了MC服务器（谁这么恶趣味啊），然后找了半天没找到怎么调回去……最后发现只要把默认转发配置改成拒绝就好了：
 
 {% asset_img istoreos-default-deny.webp 默认转发拒绝 %}

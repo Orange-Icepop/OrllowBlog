@@ -13,7 +13,7 @@ tags:
 
 ## 前情提要
 
-在Gnome桌面下，默认的图形配置界面里只支持OpenVPN/PPTP/WireGuard VPN，而无法配置基于IPsec/IKEv2的VPN（说来也奇怪，Windows下反而是内置了IKEv2和PPTP/L2TP等的客户端，而OpenVPN之类的才要额外客户端）。为了支持IKEv2，我们需要使用的是strongSwan，最重要的是其图形配置前端network-manager-strongswan。
+在Gnome桌面下，默认的图形配置界面里只支持OpenVPN/PPTP/WireGuard VPN，而无法配置基于IPsec/IKEv2的VPN（说来也奇怪，Windows下反而是内置了IKEv2和PPTP/L2TP等的客户端，而OpenVPN之类的才要额外客户端）。为了支持IKEv2，我们需要使用的是`strongSwan`，最重要的是其图形配置前端`network-manager-strongswan`。
 
 ```bash
 sudo apt install network-manager-strongswan
@@ -39,7 +39,9 @@ tips：桌面环境下查看NetworkManager日志
 
 在桌面环境下最烦人的一点就是看不到配置出问题了之后的报错，想看也很简单：
 
+```bash
 sudo journalctl -u NetworkManager.service -f
+```
 
 这里看到的是整个NetworkManager（Ubuntu默认的网络管理器）的日志，包括VPN配置，同时也负责所有无线/有线网络的配置，所以查一个问题的时候别经常去动网线啥的。
 
@@ -61,6 +63,6 @@ sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins
 
 ## 另一个坑点
 
-Gnome的前端默认不会在配置里要求服务端分配IP地址，这会导致服务端不接受流量选择器（TS_UNACCEPT）。
+Gnome的前端默认不会在配置里要求服务端分配IP地址，这会导致服务端不接受流量选择器（`TS_UNACCEPT`）。
 
-解决方案是在VPN设置的“身份”选项卡里拉到底，在Options里勾上Request an inner IP address，保存并退出，就好了。
+解决方案是在VPN设置的“身份”选项卡里拉到底，在`Options`里勾上`Request an inner IP address`，保存并退出，就好了。

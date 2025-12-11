@@ -18,7 +18,7 @@ Add-AppxPackage {Microsoft.DesktopAppInstaller的appx安装包路径} -ForceAppl
 
 新买了一块1TB的系统盘，用傲梅分区助手做了一下系统迁移，进系统一看，发现Microsoft Store的应用怎么也没法安装了。
 
-使用Add-AppxPackage呢？提示：找不到指定卷UUID。
+使用`Add-AppxPackage`呢？提示：找不到指定卷UUID。
 
 反手一个查注册表，得，系统盘UUID被改过了。我是把系统分区和软件分区放在同一块物理盘上的，这两个分区在系统迁移之后UUID全变了。
 
@@ -30,9 +30,9 @@ Add-AppxPackage {Microsoft.DesktopAppInstaller的appx安装包路径} -ForceAppl
 
 ## 尝试重装时发生的问题
 
-既然现在能装UWP应用了，说明Appx系统算是修好了，问题就单纯出在应用安装程序上。Microsoft Store大概因为自带Deploy方法，或者是直接调用Add-AppxPackage的，所以没有问题。
+既然现在能装UWP应用了，说明Appx系统算是修好了，问题就单纯出在应用安装程序上。Microsoft Store大概因为自带Deploy方法，或者是直接调用`Add-AppxPackage`的，所以没有问题。
 
-应用安装程序的Appx标识符是Microsoft.DesktopAppInstaller。先尝试Remove-AppxPackage，报错：此应用是Windows系统的一部分，无法卸载。
+应用安装程序的Appx标识符是`Microsoft.DesktopAppInstaller`。先尝试`Remove-AppxPackage`，报错：此应用是Windows系统的一部分，无法卸载。
 
 后来甚至用上了把系统内置镜像的包卸载掉，然并卵。
 
@@ -48,7 +48,7 @@ Add-AppxPackage {Microsoft.DesktopAppInstaller的appx安装包路径} -ForceAppl
 
 给我气了个半死，但是还能咋办？只好还是下下来。
 
-先尝试直接上Add-AppxPackage，报错：应用正在运行。
+先尝试直接上`Add-AppxPackage`，报错：应用正在运行。
 
 还好我们的牢软准备了相当完善的[操作手册](https://learn.microsoft.com/zh-cn/powershell/module/appx/add-appxpackage)，直接上去看一眼。
 

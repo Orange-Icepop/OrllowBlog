@@ -8,11 +8,11 @@ tags:
  - C#
 ---
 
-众所周知，AvaloniaUI的ItemsRepeater是一个用于显示数据集合的控件，能够很方便地从一个ObservableCollection中的数据生成多个子控件。
+众所周知，AvaloniaUI的`ItemsRepeater`是一个用于显示数据集合的控件，能够很方便地从一个`ObservableCollection`中的数据生成多个子控件。
 
-又众所周知，在AvaloniaUI中，实现自定义控件的最佳实践是使用模板控件（TemplatedControl）。
+又众所周知，在AvaloniaUI中，实现自定义控件的最佳实践是使用模板控件（`TemplatedControl`）。
 
-然而，当你想要在TemplatedControl中使用ItemsRepeater时，你会发现，ItemsRepeater内部DataTemplate的DataType并不会正确使用ObservableCollection内部的类。例如，以下这种情况会直接报编译错误：
+然而，当你想要在`TemplatedControl`中使用`ItemsRepeater`时，你会发现，`ItemsRepeater`内部`DataTemplate`的`DataType`并不会正确使用`ObservableCollection`内部的类。例如，以下这种情况会直接报编译错误：
 
 ```xml
 <Styles xmlns="https://github.com/avaloniaui"
@@ -52,7 +52,7 @@ public class ScrollBox : TemplatedControl
 
 出现的问题是无法解析某某某类型的数据上下文中的字段或属性 'Line'。
 
-如果你尝试将DataTemplate中的Binding改为TemplateBinding，残念，它的DataType会变成整个ScrollBox控件。
+如果你尝试将`DataTemplate`中的`Binding`改为`TemplateBinding`，残念，它的`DataType`会变成整个ScrollBox控件。
 
 ## 正解
 
@@ -80,6 +80,6 @@ public class ScrollBox : TemplatedControl
 </Styles>
 ```
 
-与直接在实例控件中使用ItemsRepeater不同，在TemplatedControl中使用ItemsRepeater时，分析器无法直接确定DataTemplate的类型，需要手动指定DataType。
+与直接在实例控件中使用`ItemsRepeater`不同，在`TemplatedControl`中使用`ItemsRepeater`时，分析器无法直接确定`DataTemplate`的类型，需要手动指定`DataType`。
 
 为了应用程序的性能，我个人是一直开着编译时绑定的，不知道不使用编译时绑定的应用有没有这个问题。

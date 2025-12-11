@@ -59,7 +59,7 @@ bash ./Miniconda3-latest-Linux-x86_64.sh
 conda config --set auto_activate_base false
 ```
 
-然后输入{% span code::conda deactivate %}来退出基础环境。
+然后输入`conda deactivate`来退出基础环境。
 
 最好再配置一下镜像源，此处就略过了。
 
@@ -71,7 +71,7 @@ conda config --set auto_activate_base false
 sudo apt install git
 ```
 
-然后找一块风水宝地准备下载SD。不建议放在/etc或者/var之类的地方，也不建议放在个人目录（/home/{username}，或者直接显示为~）下。我选择的是在根目录(/)下创建port-apps文件夹。
+然后找一块风水宝地准备下载SD。不建议放在`/etc`或者`/var`之类的地方，也不建议放在个人目录（`/home/{username}`，或者直接显示为~）下。我选择的是在根目录(/)下创建port-apps文件夹。
 
 输入以下代码来拉取SD：
 
@@ -128,7 +128,7 @@ webui.sh是经过了高度整合的打包运行脚本，理论上来讲是完全
 
 ## 安装为系统服务
 
-在服务器环境中，每次重启后都手动启动SD显然是不方便的，因此可以考虑将它配置为系统服务，这样需要的时候可以立刻开始出图。在Linux中，一般使用systemctl来管理系统服务，我们也可以自己编写配置单元文件来创建服务。服务单元文件位于{% span code::/etc/systemd/system/ %}下，以.service结尾。
+在服务器环境中，每次重启后都手动启动SD显然是不方便的，因此可以考虑将它配置为系统服务，这样需要的时候可以立刻开始出图。在Linux中，一般使用systemctl来管理系统服务，我们也可以自己编写配置单元文件来创建服务。服务单元文件位于`/etc/systemd/system/`下，以.service结尾。
 
 SD的启动可以使用bash脚本进行，这是在Linux下最方便的方式。cd到SD目录中，输入如下指令创建脚本：
 
@@ -138,7 +138,7 @@ vim launch.sh
 
 按i开始编辑。
 
-在bash脚本中，conda activate命令是要在source完conda的运行文件之后才能直接使用的：
+在bash脚本中，`conda activate`命令是要在source完conda的运行文件之后才能直接使用的：
 
 ``` bash
 #!/bin/bash
@@ -146,7 +146,7 @@ source /home/{username}/miniconda3/etc/profile.d/conda.sh
 conda activate {venv_name}
 ```
 
-实际使用时，需要将以上代码中的{username}替换成安装conda的用户名，或者将source的文件路径改成你conda的安装目录下的conda.sh。{venv_name}也需要替换成你的conda环境名称，本例中是sd-webui。
+实际使用时，需要将以上代码中的`{username}`替换成安装conda的用户名，或者将source的文件路径改成你conda的安装目录下的conda.sh。`{venv_name}`也需要替换成你的conda环境名称，本例中是`sd-webui`。
 
 ``` bash
 #!/bin/bash
@@ -159,7 +159,7 @@ export HF_ENDPOINT=https://hf-mirror.com
 python3 /port-apps/stable-diffusion-webui/launch.py --enable-insecure-extension-access --precision autocast --listen --xformers
 ```
 
-先{% span code::bash ./launch.sh %}测试一下，确保没报错后，开始编写配置单元文件：
+先`bash ./launch.sh`测试一下，确保没报错后，开始编写配置单元文件：
 
 ``` bash
 sudo vim /etc/systemd/system/sd-webui.service
@@ -201,4 +201,4 @@ sudo systemctl daemon-reload
 sudo systemctl start sd-webui
 ```
 
-如果之前直接运行脚本没有报错，则使用systemctl时也应该没有报错。执行{% span code::sudo systemctl enable sd-webui %}来允许其开机自启。
+如果之前直接运行脚本没有报错，则使用systemctl时也应该没有报错。执行`sudo systemctl enable sd-webui`来允许其开机自启。

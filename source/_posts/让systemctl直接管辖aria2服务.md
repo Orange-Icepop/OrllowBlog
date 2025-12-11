@@ -17,7 +17,7 @@ tags:
 
 最后找到了这个才解决：[P3TERX/Aria2-Pro-Core: Aria2 static binaries for GNU/Linux with some powerful feature patches. | 破解无限线程 防掉线程优化 静态编译 二进制文件 增强版](https://github.com/P3TERX/Aria2-Pro-Core)
 
-把编译好的文件丢到/usr/bin下面，顺带按照教程放了个SysV脚本到/etc/init.d/下面让它自己生成服务配置文件。
+把编译好的文件丢到`/usr/bin`下面，顺带按照教程放了个SysV脚本到`/etc/init.d/`下面让它自己生成服务配置文件。
 
 然后问题又双叒叕来了，这个Aria2三天两头崩溃，systemctl就给你挂个running(exited)也不重启，手动重启服务又连不上，只能先stop再run，烦死个人。
 
