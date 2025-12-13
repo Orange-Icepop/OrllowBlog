@@ -59,7 +59,7 @@ site_footer:
   layout: [social, license, copyright]
   social:
     - icon: fas fa-envelope
-      url: mailto:orangeicepop@orllow.cn
+      url: mailto:orangeicepop@orllow.top
     - icon: fab fa-github
       url: https://github.com/Orange-Icepop
   copyright: '[Copyright © Orange-Icepop](/)'
@@ -115,7 +115,7 @@ sidebar:
       jinrishici: false
       social:
         - icon: fas fa-envelope
-          url: mailto:orangeicepop@orllow.cn
+          url: mailto:orangeicepop@orllow.top
         - icon: fab fa-github
           url: https://github.com/Orange-Icepop
     category:
