@@ -2,11 +2,10 @@
 title: Ubuntu netplan配置固定接口
 date: 2025-07-10T21:43:12+08:00
 categories: 
-  - 软件
+  - 网络
 tags: 
   - Linux
   - Ubuntu
-  - 网络
   - netplan
 ---
 

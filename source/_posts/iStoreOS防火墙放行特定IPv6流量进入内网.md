@@ -4,7 +4,6 @@ date: 2025-08-04T20:44:31+08:00
 categories: 
   - 网络
 tags: 
-  - 网络
   - iStoreOS
   - 防火墙
   - IPv6
@@ -74,6 +73,7 @@ EUI-64简单来讲就是一个国际标准规则，使用MAC地址生成IPv6地�
 
 {% noteblock warning::关于OpenWRT上后缀匹配的语法 %}
 Linux防火墙中进行IPv6后缀匹配的标准语法就是`::后缀/::掩码`，如果不这么写，只写`::后缀`，会导致没有流量匹配该规则，设了等于白设。
+参考该[github issue](https://github.com/istoreos/istoreos/issues/2642)
 {% endnoteblock %}
 
 除了EUI-64，还有一种方案是直接配置静态后缀，最终效果和EUI-64是一样的，总体上更接近IPv4的内网配置，但是单一性保证相对就没有那么高。
