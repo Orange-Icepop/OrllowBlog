@@ -18,13 +18,7 @@ custom_css:
       h3: left
       h4: left
       p: justify
-  fontfamily:
-    codefont:
-      fontfamily: 'Maple'
-      name: 'Maple'
-      url: https://cdn.jsdelivr.net/fontsource/fonts/maple-mono@latest/latin-400-normal.woff2
-      weight: normal
-      style: normal
+    
 
 navbar:
   visible: auto
@@ -174,3 +168,11 @@ plugins:
     css:
       - https://unpkg.com/prismjs/themes/prism-dark.css
       - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css
+
+# mermaid chart
+mermaid: ## mermaid url https://github.com/knsv/mermaid
+  enable: true  # default true
+  version: "7.1.2" # default v7.1.2
+  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+    startOnload: true
+    theme: default
