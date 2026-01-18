@@ -174,6 +174,3 @@ plugins:
     css:
       - https://unpkg.com/prismjs/themes/prism-dark.css
       - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css
-
-category_map:
-  硬件: hardware
