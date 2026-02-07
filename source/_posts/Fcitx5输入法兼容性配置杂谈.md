@@ -15,7 +15,13 @@ tags:
 
 ## Flatpak
 
-Flatpak本质上是提供了一层封装，让里面的所有应用都在容器里运行，因此软件不具有直接访问输入法接口的能力。需要在Flatpak中安装"Fcitx 5"包才能提供这种桥接功能，并且这个包也只有桥接的功能，宿主系统上还是需要安装完整的Fcitx5输入法才能使用。
+{% blockquote ArchWiki https://wiki.archlinuxcn.org/wiki/Fcitx_5#flatpak %}
+flatpak 沙箱应用启动时不会读到 `~/.config/gtk-3.0/settings.ini`，而是 `~/.var/app/$APP_ID/config`（受 XDG_CONFIG_HOME 控制）。
+
+你可以使用 Flatseal 为所有 flatpak 应用（global）设定 GTK_IM_MODULE=fcitx 环境变量，也可以添加允许读取 xdg-config/gtk-3.0:ro，这样就能读到主机配置文件了。 
+{% endblockquote %}
+
+{% note warning::千万不要安装Flatpak里的`Fcitx5`包，那是一个完整的输入法，并且有一定概率顶替掉系统级软件包从而被KDE的GUI面板使用，虽然表面上看着没什么问题但是实际上会导致一切诸如主题的高级功能无法使用（因为配置文件都不知道放哪儿了）。 %}
 
 ## Qt应用
 
