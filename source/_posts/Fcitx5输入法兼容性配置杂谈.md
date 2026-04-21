@@ -13,6 +13,38 @@ tags:
 
 本文包括：Arch Linux上KDE Wayland环境下Fcitx5输入法的兼容性配置，包括但不限于：Flatpak应用，Qt应用（如wemeet），Electron应用（如新QQ）。
 
+## Wayland基础配置（共通）
+
+{% note info::本段更新于2026/4/21，此时ArchWiki已更新，主要修改了关于GTK_IM_MODULE与QT_IM_MODULE的设置问题。 %}
+
+我相信没人还在用X11了吧？（笑）
+
+Wayland下的fcitx5是基本开箱即用的，本段的配置是用于正常使用XWayland应用程序的。
+
+为了支持GTK：
+
+``` ini ~/.config/gtk-3.0/settings.ini
+[Settings]
+gtk-im-module = fcitx
+```
+
+{% note warning::请勿设置`GTK_IM_MODULE`环境变量。 %}
+
+为了支持Qt，设置以下环境变量：
+
+{% note warning::Qt5与非KDE桌面也需要这些环境变量。 %}
+
+``` bash /etc/environment
+QT_IM_MODULES=wayland;fcitx
+QT_IM_MODULE=fcitx
+```
+
+为了支持其他的XWayland应用程序：
+
+``` bash /etc/environment
+XMODIFIERS=@im=fcitx
+```
+
 ## Flatpak
 
 {% blockquote ArchWiki https://wiki.archlinuxcn.org/wiki/Fcitx_5#flatpak %}
@@ -25,19 +57,19 @@ flatpak 沙箱应用启动时不会读到 `~/.config/gtk-3.0/settings.ini`，而
 
 ## Qt应用
 
-某些Qt应用（例如腾讯会议）在未配置的情况下无法使用Fcitx5输入法。KDE授意在Wayland下不配置GTK_IM_MODULE和QT_IM_MODULE全局环境变量，但是有些软件依赖该配置。我们也不需要打破这条规则，直接在开始菜单里右键应用图标，选择“编辑应用程序”，在“环境变量”一栏中填入即可。
+某些Qt应用（例如腾讯会议）在未配置的情况下无法使用Fcitx5输入法。这是因为text-input-v2协议还没有整合到Wayland协议上游（Wayland这帮家伙的工作效率有些感人），在非KDE环境下或者某些没有支持这条协议的软件还是需要配置`QT_IM_MODULE=fcitx`来采用传统方法让软件使用输入法。KDE中，直接在开始菜单里右键应用图标，选择“编辑应用程序”，在“环境变量”一栏中填入即可。
 
 {% asset_img wemeet-ime.webp 腾讯会议 %}
 
-需要注意的是，QT_IM_MODULE环境变量应当设置为fcitx而非fcitx5，否则将仍然无法使用输入法。[官方文档](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Qt5_.2F_Qt6)有时候还是非常有用的。
+[Fcitx官方文档](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Qt5_.2F_Qt6)有时候还是非常有用的。
 
-PS:前面的环境变量`__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json`也是腾讯会议相对重要的一个配置，否则在某些双显卡的笔记本下，使用独显直连模式时会导致无法观看他人的屏幕共享。
+PS:前面的环境变量`__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json`也是腾讯会议相对重要的一个配置，否则在某些双显卡的笔记本下，使用独显直连模式时会导致无法观看他人的屏幕共享。混合模式就随便了。
 
 ## Electron应用
 
 Electron这玩意儿属实臭名昭著，但是谁叫它用的是几乎无缝的JavaScript技术栈呢？QQ就是要用Electron，腾子才不会管你对它怨言多大。
 
-同样根据[官方文档](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron)，只要在运行参数中添加--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime即可。
+同样根据[官方文档](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron)，只要在运行参数中添加`--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime`即可。
 
 {% asset_img qq-ime.webp 新版QQ %}
 
