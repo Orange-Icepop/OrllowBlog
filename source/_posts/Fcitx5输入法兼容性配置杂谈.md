@@ -53,6 +53,8 @@ flatpak 沙箱应用启动时不会读到 `~/.config/gtk-3.0/settings.ini`，而
 你可以使用 Flatseal 为所有 flatpak 应用（global）设定 GTK_IM_MODULE=fcitx 环境变量，也可以添加允许读取 xdg-config/gtk-3.0:ro，这样就能读到主机配置文件了。 
 {% endblockquote %}
 
+个人推荐`添加允许读取 xdg-config/gtk-3.0:ro`，因为前面那个在我这儿没用......
+
 {% note warning::千万不要安装Flatpak里的`Fcitx5`包，那是一个完整的输入法，并且有一定概率顶替掉系统级软件包从而被KDE的GUI面板使用，虽然表面上看着没什么问题但是实际上会导致一切诸如主题的高级功能无法使用（因为配置文件都不知道放哪儿了）。 %}
 
 ## Qt应用
