@@ -37,13 +37,13 @@ show_always = true          # 始终显示用户名
 disabled = false
 format = '[$status]($style) '   # 显示格式，例如 [1]
 style = "bold red"              # 失败时的颜色
-map_symbol = true                # 使用默认符号映射（可选）
-pipestatus = true                # 显示管道状态（如需）
-pipestatus_separator = "|"
+map_symbol = true                # 使用默认符号映射
+pipestatus = true                # 显示管道状态
+pipestatus_separator = "|"       # 管道状态分隔符
 pipestatus_format = '[$pipestatus]($style) '
 
 [directory]
-truncation_length = 0
+truncation_length = 0           # 工作路径截断长度，设置为0则不截断（home折叠与此项无关）
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
