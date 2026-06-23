@@ -1,8 +1,13 @@
 ---
 title: ArchLinux将ESP分区从/boot改挂到/efi
-date: 2026-01-17T18:13:11+08:00
-categories: [系统]
-tags: [Linux, ArchLinux, UEFI]
+categories:
+  - 系统
+tags:
+  - Linux
+  - ArchLinux
+  - UEFI
+abbrlink: 27582
+date: 2026-01-17 10:13:11
 ---
 
 btrfs 因其快照功能，成为许多 Arch Linux 用户在滚动更新中的重要保障。然而，若 ESP 分区挂载不当，内核回滚后可能导致系统无法启动。

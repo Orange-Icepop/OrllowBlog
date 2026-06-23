@@ -1,11 +1,12 @@
 ---
 title: C#编程守则
-date: 2025-11-15T11:45:50+08:00
-categories: 
+categories:
   - 编程
-tags: 
+tags:
   - C#
   - .NET
+abbrlink: 6012
+date: 2025-11-15 03:45:50
 ---
 
 ## 介绍

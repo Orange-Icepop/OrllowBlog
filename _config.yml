@@ -14,11 +14,11 @@ timezone: Asia/Shanghai
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://blog.orllow.cn
-permalink: :year/:month/:day/:title
+permalink: posts/:abbrlink/
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -110,3 +110,11 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
   theme: default
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     startOnload: true
+
+# abbrlink
+abbrlink:
+  alg: crc16      # Algorithm used to calc abbrlink. Support crc16(default) and crc32
+  rep: dec        # Representation of abbrlink in URLs. Support dec(default) and hex
+  drafts: false   # Whether to generate abbrlink for drafts. (false in default)
+  force: false    # Enable force mode. In this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had an abbrlink. (false in default)
+  writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)

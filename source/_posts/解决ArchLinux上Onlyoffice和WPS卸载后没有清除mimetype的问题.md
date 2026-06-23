@@ -1,13 +1,14 @@
 ---
 title: 解决ArchLinux上Onlyoffice和WPS卸载后没有清除mimetype的问题
-date: 2025-12-27T09:45:45+08:00
-categories: 
+categories:
   - 软件
-tags: 
+tags:
   - ArchLinux
   - mimetype
   - WPS
   - ONLYOFFICE
+abbrlink: 36583
+date: 2025-12-27 01:45:45
 ---
 
 ## 症状

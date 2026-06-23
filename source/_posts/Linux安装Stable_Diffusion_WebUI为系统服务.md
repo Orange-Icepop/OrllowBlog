@@ -1,13 +1,13 @@
 ---
 title: Linux安装Stable Diffusion WebUI为systemd服务
-date: 2025-05-05T11:06:23+08:00
-#cover: /images/covers/miku-1080p.webp
-categories: 
+categories:
   - 软件
-tags: 
+tags:
   - Linux
   - StableDiffusion
   - systemd
+abbrlink: 57669
+date: 2025-05-05 03:06:23
 ---
 
 本文章介绍了在Ubuntu上使用Conda环境部署Stable Diffusion WebUI，并将其部署为systemd系统服务的方法。与此同时，还包含这些操作的要点。

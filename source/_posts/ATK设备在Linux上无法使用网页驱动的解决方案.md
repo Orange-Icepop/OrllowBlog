@@ -1,8 +1,14 @@
 ---
 title: ATK设备在Linux上无法使用网页驱动的解决方案
-date: 2026-01-27T15:01:38+08:00
-categories: [系统]
-tags: [Linux, ArchLinux, Chrome, udev]
+categories:
+  - 系统
+tags:
+  - Linux
+  - ArchLinux
+  - Chrome
+  - udev
+abbrlink: 62847
+date: 2026-01-27 07:01:38
 ---
 
 ## 前言

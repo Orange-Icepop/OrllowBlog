@@ -1,12 +1,13 @@
 ---
 title: Ubuntu桌面因不支持EAP_IDENTITY而无法连接IKEv2 VPN的解决方法
-date: 2025-09-30T14:10:37+08:00
-categories: 
+categories:
   - 网络
-tags: 
+tags:
   - Linux
   - Ubuntu
   - VPN
+abbrlink: 53252
+date: 2025-09-30 06:10:37
 ---
 
 省流：把strongSwan装全。

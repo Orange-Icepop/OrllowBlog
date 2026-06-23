@@ -1,15 +1,16 @@
 ---
 title: iStoreOS部署WireGuard实战与踩坑
-date: 2025-12-24T20:56:26+08:00
-categories: 
+categories:
   - 网络
-tags: 
+tags:
   - 软路由
   - iStoreOS
   - VPN
   - IPv6
   - ArchLinux
   - 防火墙
+abbrlink: 1991
+date: 2025-12-24 12:56:26
 ---
 
 我的iStoreOS网关上原本部署的是IKEv2作为回家的工具，然而前不久自签证书过期了，考虑到证书签发太麻烦，再加上对安全性的考量，最终选择了换用WireGuard。

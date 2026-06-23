@@ -1,11 +1,12 @@
 ---
 title: 强制重新安装Windows包管理器winget
-date: 2025-07-06T21:37:58+08:00
-categories: 
+categories:
   - 软件
-tags: 
+tags:
   - Windows
   - Appx
+abbrlink: 60749
+date: 2025-07-06 13:37:58
 ---
 
 ## 省流

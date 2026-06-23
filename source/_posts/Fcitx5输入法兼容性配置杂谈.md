@@ -1,14 +1,15 @@
 ---
 title: Fcitx5输入法兼容性配置杂谈
-date: 2025-10-25T19:53:25+08:00
-categories: 
+categories:
   - 软件
-tags: 
+tags:
   - Linux
   - 输入法
   - ArchLinux
   - KDE
   - Wayland
+abbrlink: 30033
+date: 2025-10-25 11:53:25
 ---
 
 本文包括：Arch Linux上KDE Wayland环境下Fcitx5输入法的兼容性配置，包括但不限于：Flatpak应用，Qt应用（如wemeet），Electron应用（如新QQ）。

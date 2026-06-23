@@ -1,12 +1,13 @@
 ---
 title: Ubuntu netplan配置固定接口
-date: 2025-07-10T21:43:12+08:00
-categories: 
+categories:
   - 网络
-tags: 
+tags:
   - Linux
   - Ubuntu
   - netplan
+abbrlink: 51138
+date: 2025-07-10 13:43:12
 ---
 
 我不知道各位有没有碰到过类似的问题：你刚刚把你的Ubuntu计算机加好新硬件，插电开机（冷启动），然后SSH一登，Connection Timeout，回到本地一看，netplan给你写了份新的配置文件导致IP不同……

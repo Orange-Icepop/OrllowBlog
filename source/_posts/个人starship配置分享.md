@@ -1,11 +1,12 @@
 ---
 title: 个人starship配置分享
-date: 2026-05-16T07:10:53+08:00
 categories:
   - 系统
 tags:
   - Linux
   - 命令行
+abbrlink: 55757
+date: 2026-05-15 23:10:53
 ---
 
 ## 效果展示

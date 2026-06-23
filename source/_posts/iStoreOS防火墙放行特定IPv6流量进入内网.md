@@ -1,13 +1,14 @@
 ---
 title: iStoreOS防火墙放行特定IPv6流量进入内网
-date: 2025-08-04T20:44:31+08:00
-categories: 
+categories:
   - 网络
-tags: 
+tags:
   - iStoreOS
   - 防火墙
   - IPv6
   - 软路由
+abbrlink: 1895
+date: 2025-08-04 12:44:31
 ---
 
 因为爱快用的太糟心，我将家里的主网关换成了iStoreOS的系统，但是两个系统的操作逻辑不大一样，导致很多配置的迁移遇到了比较大的阻力。几个例子：

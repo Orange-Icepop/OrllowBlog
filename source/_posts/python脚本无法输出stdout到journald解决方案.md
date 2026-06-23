@@ -1,11 +1,12 @@
 ---
 title: Python脚本无法输出stdout到journald解决方案
-date: 2026-06-23T14:51:10+08:00
-categories: 
-- 系统
-tags: 
-- systemd
-- Linux
+categories:
+  - 系统
+tags:
+  - systemd
+  - Linux
+abbrlink: 23239
+date: 2026-06-23 06:51:10
 ---
 
 ## 现象

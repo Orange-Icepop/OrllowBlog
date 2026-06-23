@@ -1,12 +1,13 @@
 ---
 title: AvaloniaUI TextBox无法在setter中被清空的解决办法
-date: 2025-08-06T21:24:34+08:00
-categories: 
+categories:
   - 编程
-tags: 
+tags:
   - AvaloniaUI
   - .NET
   - C#
+abbrlink: 9232
+date: 2025-08-06 13:24:34
 ---
 
 先上代码：

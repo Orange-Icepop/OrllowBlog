@@ -1,12 +1,13 @@
 ---
 title: 让systemd直接管辖aria2服务
-date: 2025-02-13T13:25:32+08:00
-categories: 
+categories:
   - 软件
-tags: 
+tags:
   - Linux
   - Aria2
   - systemd
+abbrlink: 44453
+date: 2025-02-13 05:25:32
 ---
 
 这篇省不了流，省了你也不知道怎么解决。

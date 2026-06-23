@@ -1,11 +1,12 @@
 ---
 title: AvaloniaUI在TemplatedControl中使用ItemsRepeater
-date: 2025-11-22T14:01:33+08:00
-categories: 
- - 编程
-tags: 
- - AvaloniaUI
- - C#
+categories:
+  - 编程
+tags:
+  - AvaloniaUI
+  - C#
+abbrlink: 29927
+date: 2025-11-22 06:01:33
 ---
 
 众所周知，AvaloniaUI的`ItemsRepeater`是一个用于显示数据集合的控件，能够很方便地从一个`ObservableCollection`中的数据生成多个子控件。
