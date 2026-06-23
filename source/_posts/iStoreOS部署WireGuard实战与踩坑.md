@@ -9,7 +9,7 @@ tags:
   - IPv6
   - ArchLinux
   - 防火墙
-abbrlink: 1991
+abbrlink: ffe2eb24
 date: 2025-12-24 12:56:26
 ---
 

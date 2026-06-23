@@ -6,7 +6,7 @@ tags:
   - Linux
   - ArchLinux
   - UEFI
-abbrlink: 27582
+abbrlink: 5982933d
 date: 2026-01-17 10:13:11
 ---
 

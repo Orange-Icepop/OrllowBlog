@@ -7,7 +7,7 @@ tags:
   - Minecraft开服器
   - C#
   - Java
-abbrlink: 8555
+abbrlink: d865e4ed
 date: 2025-02-12 11:35:51
 ---
 简而言之，就是检查.jar文件内的`META-INF/MANIFEST.MF`文件，其中的`Main-Class`字段具有每种核心的特征。

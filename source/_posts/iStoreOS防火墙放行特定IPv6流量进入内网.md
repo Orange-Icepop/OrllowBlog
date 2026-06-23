@@ -7,7 +7,7 @@ tags:
   - 防火墙
   - IPv6
   - 软路由
-abbrlink: 1895
+abbrlink: 6767a142
 date: 2025-08-04 12:44:31
 ---
 

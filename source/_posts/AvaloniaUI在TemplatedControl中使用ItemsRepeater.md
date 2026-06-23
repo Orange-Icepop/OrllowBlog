@@ -5,7 +5,7 @@ categories:
 tags:
   - AvaloniaUI
   - C#
-abbrlink: 29927
+abbrlink: 3354022c
 date: 2025-11-22 06:01:33
 ---
 

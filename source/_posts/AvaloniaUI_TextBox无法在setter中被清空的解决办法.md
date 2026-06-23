@@ -6,7 +6,7 @@ tags:
   - AvaloniaUI
   - .NET
   - C#
-abbrlink: 9232
+abbrlink: 386256a
 date: 2025-08-06 13:24:34
 ---
 

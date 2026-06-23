@@ -7,7 +7,7 @@ tags:
   - ArchLinux
   - Chrome
   - udev
-abbrlink: 62847
+abbrlink: 7eaec7bf
 date: 2026-01-27 07:01:38
 ---
 

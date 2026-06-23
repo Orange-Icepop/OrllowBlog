@@ -6,7 +6,7 @@ tags:
   - Linux
   - Ubuntu
   - netplan
-abbrlink: 51138
+abbrlink: 5d7e2e40
 date: 2025-07-10 13:43:12
 ---
 

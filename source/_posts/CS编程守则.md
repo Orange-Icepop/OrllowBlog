@@ -5,7 +5,7 @@ categories:
 tags:
   - C#
   - .NET
-abbrlink: 6012
+abbrlink: 9ec3c2b2
 date: 2025-11-15 03:45:50
 ---
 

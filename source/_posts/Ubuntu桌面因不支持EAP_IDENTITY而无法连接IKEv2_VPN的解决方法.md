@@ -6,7 +6,7 @@ tags:
   - Linux
   - Ubuntu
   - VPN
-abbrlink: 53252
+abbrlink: 7fb3ff39
 date: 2025-09-30 06:10:37
 ---
 

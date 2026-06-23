@@ -8,7 +8,7 @@ tags:
   - ArchLinux
   - KDE
   - Wayland
-abbrlink: 30033
+abbrlink: 769a413c
 date: 2025-10-25 11:53:25
 ---
 
