@@ -1,19 +1,19 @@
 ---
-title: 让systemctl直接管辖aria2服务
+title: 让systemd直接管辖aria2服务
 date: 2025-02-13T13:25:32+08:00
 categories: 
   - 软件
 tags: 
   - Linux
   - Aria2
-  - systemctl
+  - systemd
 ---
 
 这篇省不了流，省了你也不知道怎么解决。
 
 前段时间开始玩Ubuntu当服务器用，用apt装了个Aria2，又装了个AriaNG拿来挂下载。
 
-然后问题来了，Aria2单文件下载线程数限死在16线程，相比Motrix慢如狗。然后就是扒拉下来Aria2源文件改了自己编译，又摸不清gcc咋编译……
+然后问题来了，原版Aria2单文件下载线程数限死在16线程，相比Motrix自带的修改版Aria2慢如狗。然后就是扒拉下来Aria2源文件改了自己编译，又因为技术力不够摸不清咋用make编译……
 
 最后找到了这个才解决：[P3TERX/Aria2-Pro-Core: Aria2 static binaries for GNU/Linux with some powerful feature patches. | 破解无限线程 防掉线程优化 静态编译 二进制文件 增强版](https://github.com/P3TERX/Aria2-Pro-Core)
 

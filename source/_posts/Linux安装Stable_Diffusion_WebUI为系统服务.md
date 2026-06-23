@@ -1,5 +1,5 @@
 ---
-title: Linux安装Stable Diffusion WebUI为系统服务
+title: Linux安装Stable Diffusion WebUI为systemd服务
 date: 2025-05-05T11:06:23+08:00
 #cover: /images/covers/miku-1080p.webp
 categories: 
@@ -7,10 +7,10 @@ categories:
 tags: 
   - Linux
   - StableDiffusion
-  - systemctl
+  - systemd
 ---
 
-本文章介绍了在Ubuntu上使用Conda环境部署Stable Diffusion WebUI，并将其部署为系统服务的方法。与此同时，还包含这些操作的要点。
+本文章介绍了在Ubuntu上使用Conda环境部署Stable Diffusion WebUI，并将其部署为systemd系统服务的方法。与此同时，还包含这些操作的要点。
 
 Stable Diffusion WebUI（简称SD WebUI，下文简称SD）的本地部署一直是很热的话题，但是在Linux上的服务端部署一直是一个难题。不像在Windows上，我们有秋叶大佬开发的绘世启动器一键懒人包，在Linux上我们必须手动下载Stable Diffusion WebUI并进行配置。
 
@@ -28,13 +28,15 @@ Stable Diffusion WebUI（简称SD WebUI，下文简称SD）的本地部署一直
 
 Ubuntu默认使用的是开源的nouveau驱动，但是性能相对会弱一些。在GUI环境下，可以直接进入软件包更新=>附加驱动来切换到NVIDIA专有驱动（重启生效）。
 
-如果你是其它的操作系统或者没有GUI环境，就需要自己手动去找方法切换过去了（或者也许可以忽视掉，直接装CUDA）。
+如果你是其它的操作系统或者没有GUI环境，就需要自己手动去找方法切换过去了（或者可能可以忽视掉，直接装CUDA）。
 
 ## 安装miniconda3
 
 在相当一部分系统中，python包都是系统级管理的（externally managed），直接使用pip安装会导致报错，提示需要创建venv（python虚拟环境）或直接使用系统包管理器（如apt）安装。venv不失为一个好方案，但是无法自由切换python版本（SD使用较老的python3.10.6，有相当大概率系统装的不是这个版本），限制还是相对比较大的。
 
 conda是一个包和环境管理工具，能够创建高度独立的python环境，并且可以直接修改python版本，相比venv来说使用更为简便。在Windows上一般会直接使用其整合包Anaconda（近几年的信息课上一般都会使用它），由于包含了大量的额外包导致其较为臃肿，因此就有了其最小环境miniconda（没有GUI）。
+
+{% note warning::由于新版本conda的shell激活用时极长，现已不推荐使用miniconda。可以改用Astral uv（支持自定义python与pip版本）等工具来进行虚拟环境管理。 %}
 
 在Linux终端中逐行输入以下命令：
 
