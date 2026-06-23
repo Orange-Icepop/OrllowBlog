@@ -24,8 +24,7 @@
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-butterfly": "^5.5.5",
-    "hexo-theme-volantis": "^5.8.1"
+    "hexo-theme-butterfly": "^5.5.5"
   },
   "packageManager": "pnpm@8.15.0"
 }

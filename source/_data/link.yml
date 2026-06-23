@@ -1,0 +1,7 @@
+- class_name: MC好友 # 分组标题
+  class_desc: 和我一起玩MC的朋友们 # 分组描述
+  link_list:
+    - name: minecraftLYC # 名称
+      avatar: # 头像
+      link: https://www.lycham.cc # 链接
+      descr: 喜欢玩Debian on ARM服务器的家伙 # 描述

@@ -44,9 +44,6 @@ dependencies:
   hexo-theme-butterfly:
     specifier: ^5.5.5
     version: 5.5.5
-  hexo-theme-volantis:
-    specifier: ^5.8.1
-    version: 5.8.1
 
 packages:
 
@@ -936,10 +933,6 @@ packages:
       moment-timezone: 0.6.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /hexo-theme-volantis@5.8.1:
-    resolution: {integrity: sha512-xl+fIMdu29en456CtC1FW4zb1AAS9v8a+azIwwUn/HyDykCHpjMMjIY2nT8VzoDrmUorStcR1Rg+0JsNuDm5/A==}
     dev: false
 
   /hexo-util@2.7.0:
