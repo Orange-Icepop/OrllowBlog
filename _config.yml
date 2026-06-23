@@ -45,10 +45,10 @@ relative_link: false
 future: true
 syntax_highlighter: highlight.js
 highlight:
-  line_number: true
-  auto_detect: false
+  line_number: false
+  auto_detect: true
   tab_replace: ''
-  wrap: true
+  wrap: false
   hljs: false
 prismjs:
   preprocess: true

@@ -29,7 +29,7 @@ menu:
 
 code_blocks:
   # 代碼塊主題: darker / pale night / light / ocean / false
-  theme: light
+  theme: darker
   # 是否使用 Mac 風格
   macStyle: false
   # 代碼塊高度限制（單位: px）
@@ -51,18 +51,18 @@ code_blocks:
 # 格式:
 #   icon: 鏈接 || 描述 || 顏色
 social:
-
+  fab fa-github: https://github.com/Orange-Icepop
 # --------------------------------------
 # 圖片設置
 # --------------------------------------
 
 # 網站的 favicon 圖標
-favicon: /img/favicon.png
+favicon: /favicon.ico
 
 # 頭像設置
 avatar:
   # 頭像圖片鏈接
-  img: https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png
+  img: /images/author.webp
   # 是否啟用頭像效果
   effect: false
 
@@ -73,7 +73,7 @@ disable_top_img: false
 default_top_img:
 
 # 主頁的橫幅圖片
-index_img:
+index_img: /images/background.webp
 
 # 歸檔頁的橫幅圖片
 archive_img:
@@ -100,7 +100,7 @@ footer_img: false
 # 網站背景
 # 可以設置為顏色或圖片
 # 圖片格式: url(http://xxxxxx.com/xxx.jpg)
-background:
+background: white
 
 # 封面設置
 cover:
@@ -129,7 +129,7 @@ error_404:
   # 404 頁面的副標題
   subtitle: 'Page Not Found'
   # 404 頁面的卡片背景圖片
-  background: https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png
+  background: /images/background.webp
 
 # 文章元數據設置
 post_meta:
@@ -174,7 +174,7 @@ index_top_img_height:
 # 首頁的副標題設置
 subtitle:
   # 是否啟用副標題
-  enable: false
+  enable: true
   # 是否啟用打字機效果
   effect: true
   # 自定義 typed.js
@@ -190,6 +190,7 @@ subtitle:
   source: false
   # 如果關閉打字機效果，副標題將僅顯示 sub 的第一行內容
   sub:
+    - MC玩家一枚兼发量很大的程序员
 
 # 首頁文章佈局
 # 1: 行佈局
@@ -297,7 +298,7 @@ footer:
     # 是否啟用所有者顯示
     enable: true
     # 網站創建年份
-    since: 2019
+    since: 2025
   # 自定義文本
   custom_text:
   # 主題和框架的版權聲明
@@ -454,7 +455,7 @@ darkmode:
   # autoChangeMode: 1  跟隨系統設置，如果系統不支持暗黑模式，則在晚上 6 點到早上 6 點之間切換暗黑模式
   # autoChangeMode: 2  在晚上 6 點到早上 6 點之間切換暗黑模式
   # autoChangeMode: false  不自動切換
-  autoChangeMode: false
+  autoChangeMode: 1
   # 設置明亮模式時間，值在 0 到 24 之間。如果未設置，默認值為 6 和 18
   start:
   end:
@@ -605,7 +606,7 @@ comments:
   # 如果不需要評論功能，保持為空
   # 選擇：Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
   # 兩個評論系統的格式：Disqus,Waline
-  use:
+  use: Giscus
   # 按鈕旁邊顯示評論系統名稱
   text: true
   # 懶加載：評論系統將在評論元素進入瀏覽器視口時加載
@@ -728,11 +729,11 @@ twikoo:
 # 官方文檔：https://giscus.app/
 giscus:
   # 倉庫地址
-  repo:
+  repo: Orange-Icepop/BlogDiscussion
   # 倉庫 ID
-  repo_id:
+  repo_id: R_kgDOQNmj3A
   # 分類 ID
-  category_id:
+  category_id: DIC_kwDOQNmj3M4CxWed
   # 主題配置，light 為淺色主題，dark 為深色主題
   theme:
     light: light
