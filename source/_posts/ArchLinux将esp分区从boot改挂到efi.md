@@ -66,7 +66,7 @@ ArchLinux不管内核是什么版本，`/boot`里的`initramfs`镜像和内核�
 
 需要注意的是，一些较早的教程可能仍建议将 ESP 分区挂载到 /boot。例如，作者一开始是照着以下这个视频来装Arch的：
 
-{% link 「Archlinux究极指南2025」从手动安装到显卡直通，最后删除Linux::https://www.bilibili.com/video/BV1L2gxzVEgs/ %}
+[「Archlinux究极指南2025」从手动安装到显卡直通，最后删除Linux](https://www.bilibili.com/video/BV1L2gxzVEgs/)
 
 这个视频现在看来有诸多错误，最严重的就是选择将ESP分区挂载到`/boot`。
 新用户很容易掉进这个视频的陷阱。尽管原作者已经发布了正确安装的视频，并且在评论区置顶了新视频和相关说明，但是他没有删除旧视频，而旧视频仍然在B站`ArchLinux安装`搜索结果的高位；与此同时，新视频更多的是“Linux上手全过程指南”，而与安装Arch没有强相关，因此直接搜索`Archlinux安装`的用户很容易被误导。

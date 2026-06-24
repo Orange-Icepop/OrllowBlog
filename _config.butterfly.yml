@@ -340,9 +340,9 @@ aside:
       # 按鈕圖標
       icon: fab fa-github
       # 按鈕文本
-      text: Follow Me
+      text: "Orange-Icepop Github"
       # 按鈕鏈接
-      link: https://github.com/xxxxxx
+      link: https://github.com/Orange-Icepop
   card_announcement:
     # 是否顯示公告卡片
     enable: true
