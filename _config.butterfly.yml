@@ -1094,7 +1094,7 @@ abcjs:
 # https://github.com/mermaid-js/mermaid
 mermaid:
   # 是否啟用 Mermaid
-  enable: false
+  enable: true
   # 使用代碼塊編寫 Mermaid 圖表
   code_write: false
   # 內置主題: default / forest / dark / neutral
