@@ -43,7 +43,7 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
-syntax_highlighter: highlight.js
+syntax_highlighter: ""
 highlight:
   line_number: true
   auto_detect: false
@@ -118,3 +118,13 @@ abbrlink:
   drafts: false   # Whether to generate abbrlink for drafts. (false in default)
   force: false    # Enable force mode. In this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had an abbrlink. (false in default)
   writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)
+
+# shiki
+shiki:
+  theme: github-dark
+  line_number: true
+  beautify: false
+  highlight_copy: true
+  highlight_lang: true
+  highlight_height_limit: 360
+  is_highlight_shrink: false
