@@ -40,4 +40,4 @@ EMO含量反而更高的中二病（真就只在初二发病），主要体现�
 
 低产+断更的科技区UP主。日常更新的主线是数码相关建议和音乐区视频。
 
-{% ghcard Orange-Icepop::theme=algolia %}
+<!--{% ghcard Orange-Icepop, theme=algolia %}-->

@@ -16,7 +16,9 @@ date: 2025-10-25 11:53:25
 
 ## Wayland基础配置（共通）
 
-{% note info::本段更新于2026/4/21，此时ArchWiki已更新，主要修改了关于GTK_IM_MODULE与QT_IM_MODULE的设置问题。 %}
+{% note info %}
+本段更新于2026/4/21，此时ArchWiki已更新，主要修改了关于GTK_IM_MODULE与QT_IM_MODULE的设置问题。
+{% endnote %}
 
 我相信没人还在用X11了吧？（笑）
 
@@ -29,11 +31,15 @@ Wayland下的fcitx5是基本开箱即用的，本段的配置是用于正常使�
 gtk-im-module = fcitx
 ```
 
-{% note warning::请勿设置`GTK_IM_MODULE`环境变量。 %}
+{% note warning %}
+请勿设置`GTK_IM_MODULE`环境变量。
+{% endnote %}
 
 为了支持Qt，设置以下环境变量：
 
-{% note warning::Qt5与非KDE桌面也需要这些环境变量。 %}
+{% note warning %}
+Qt5与非KDE桌面也需要这些环境变量。
+{% endnote %}
 
 ``` bash /etc/environment
 QT_IM_MODULES=wayland;fcitx
@@ -56,7 +62,9 @@ flatpak 沙箱应用启动时不会读到 `~/.config/gtk-3.0/settings.ini`，而
 
 个人推荐`添加允许读取 xdg-config/gtk-3.0:ro`，因为前面那个在我这儿没用......
 
-{% note warning::千万不要安装Flatpak里的`Fcitx5`包，那是一个完整的输入法，并且有一定概率顶替掉系统级软件包从而被KDE的GUI面板使用，虽然表面上看着没什么问题但是实际上会导致一切诸如主题的高级功能无法使用（因为配置文件都不知道放哪儿了）。 %}
+{% note warning %}
+千万不要安装Flatpak里的`Fcitx5`包，那是一个完整的输入法，并且有一定概率顶替掉系统级软件包从而被KDE的GUI面板使用，虽然表面上看着没什么问题但是实际上会导致一切诸如主题的高级功能无法使用（因为配置文件都不知道放哪儿了）。
+{% endnote %}
 
 ## Qt应用
 

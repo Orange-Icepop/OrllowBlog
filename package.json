@@ -12,20 +12,19 @@
     "version": "8.1.2"
   },
   "dependencies": {
-    "hexo": "^8.0.0",
+    "hexo": "^8.1.2",
     "hexo-abbrlink": "^2.2.1",
-    "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^4.0.0",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-kramed": "^0.1.4",
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-butterfly": "^5.5.5",
-    "hexo-theme-volantis": "^5.8.1"
+    "hexo-shiki-highlighter": "^0.2.2",
+    "hexo-theme-butterfly": "^5.5.5"
   },
   "packageManager": "pnpm@8.15.0"
 }

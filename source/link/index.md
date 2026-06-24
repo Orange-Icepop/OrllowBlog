@@ -1,5 +1,5 @@
 ---
-layout: friends
+type: 'link'
 title: 我的朋友们
 ---
 

@@ -52,8 +52,11 @@ highlight:
   hljs: false
 prismjs:
   preprocess: true
-  line_number: true
+  line_number: false
   tab_replace: ''
+shiki:
+  theme: "github-dark"
+  strip_indent: true # Strip the leading indent of the code block (default: true, just like the official highlighter)
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -96,20 +99,12 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: volantis
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
-
-  # mermaid chart
-mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: true  # default true
-  version: "7.1.2" # default v7.1.2
-  theme: default
-  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
-    startOnload: true
 
 # abbrlink
 abbrlink:
@@ -118,3 +113,13 @@ abbrlink:
   drafts: false   # Whether to generate abbrlink for drafts. (false in default)
   force: false    # Enable force mode. In this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had an abbrlink. (false in default)
   writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)
+
+# shiki
+# shiki:
+#   theme: github-dark
+#   line_number: true
+#   beautify: false
+#   highlight_copy: true
+#   highlight_lang: true
+#   highlight_height_limit: 360
+#   is_highlight_shrink: false

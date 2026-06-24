@@ -137,7 +137,9 @@ public class ProcessMetricsMonitor : IDisposable
 
 CPU占用率没有很好的指标，目前能想到的只有`Process`自带的`TotalProcessorTime`属性，它表示进程自启动以来所消耗的CPU时间，因此我们可以通过计算两次获取的`TotalProcessorTime`的差值，除以CPU核数（可以在一个全局的static class中缓存以减少对Environment类的调用开销），再除以两次获取的时间间隔，得到CPU使用率。这是一个笨办法，但能解决问题。唯一的缺点就是无法精确到单个线程，只能得到进程整体的CPU使用率。
 
-{%note info::关于为什么不直接除以一秒，是由于Timer本身就不是为高精度计时设计的，每次CallBack的时间间隔都有微小差异，当CPU忙的时候甚至有可能多个任务堆积导致极大的误差，因此我选择了采用TimeSpan计时的方式。%}
+{% note info %}
+关于为什么不直接除以一秒，是由于Timer本身就不是为高精度计时设计的，每次CallBack的时间间隔都有微小差异，当CPU忙的时候甚至有可能多个任务堆积导致极大的误差，因此我选择了采用TimeSpan计时的方式。
+{% endnote %}
 
 ### 2. 获取内存占用
 

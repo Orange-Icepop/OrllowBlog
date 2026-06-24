@@ -36,7 +36,9 @@ Ubuntu默认使用的是开源的nouveau驱动，但是性能相对会弱一些�
 
 conda是一个包和环境管理工具，能够创建高度独立的python环境，并且可以直接修改python版本，相比venv来说使用更为简便。在Windows上一般会直接使用其整合包Anaconda（近几年的信息课上一般都会使用它），由于包含了大量的额外包导致其较为臃肿，因此就有了其最小环境miniconda（没有GUI）。
 
-{% note warning::由于新版本conda的shell激活用时极长，现已不推荐使用miniconda。可以改用Astral uv（支持自定义python与pip版本）等工具来进行虚拟环境管理。 %}
+{% note warning %}
+由于新版本conda的shell激活用时极长，现已不推荐使用miniconda。可以改用Astral uv（支持自定义python与pip版本）等工具来进行虚拟环境管理。
+{% endnote %}
 
 在Linux终端中逐行输入以下命令：
 

@@ -28,7 +28,7 @@ sudo apt install network-manager-strongswan
 15[IKE] received EAP_FAILURE, EAP authentication failed
 ```
 
-{% folding cyan::tips：桌面环境下查看NetworkManager日志 %}
+{% note info %}
 
 在桌面环境下最烦人的一点就是看不到配置出问题了之后的报错，想看也很简单：
 
@@ -48,7 +48,7 @@ sudo journalctl -u NetworkManager.service -f
 
 （说NetworkManager是默认网络管理器其实也不严谨，Ubuntu实际上的默认网络管理器是netplan，用作前端（沟槽的万能中间层还在发力），而它的后端，也就是实际管接口的东西默认是NetworkManager，如果你愿意的话也可以换成networkd，但是和Gnome桌面的适性就难说了）
 
-{% endfolding %}
+{% endnote %}
 
 ## 解决方法
 

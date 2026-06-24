@@ -27,49 +27,51 @@ btrfs 因其快照功能，成为许多 Arch Linux 用户在滚动更新中的�
  - 系统盘文件系统是ext4等不具备快照/回滚功能的文件系统：没有快照和回滚功能，不用操心这事儿。
  - Legacy（非UEFI）启动模式：真的有人成功过吗？Legacy模式几乎不存在从btrfs文件系统的Linux启动的方法。
 
-{% folding cyan open::关于ESP分区 %}
+{% note info %}
+
+### 关于ESP分区
 
 在UEFI之前，传统的BIOS+MBR模式直接把操作系统引导程序的加载器（PBR）写进MBR（主引导记录）里，简单是简单，但是MBR本身就多大点地儿，存分区表还不够呢。位置也很尴尬，PBR和分区表混在一起，引导程序和操作系统文件混在一起，一点都不符合解耦原则。并且，一旦文件系统麻烦一点（比如btrfs这种有子卷，需要额外驱动的），MBR就没辙了，只能指望grub2给你在`/boot`（FAT32）里存了个btrfs驱动，不仅麻烦还不稳定。
 
 PS.在Legacy环境下能够“免boot分区”启动NTFS文件系统上的Windows，实际上是因为微软走了个狗屎运，PBR的空间刚好能塞下一个最小的NTFS只读驱动，但是很显然这不是长久之计。要是当时微软没那么走运，现在也不会有那么多人骂ESP分区碍事了。
 
-```mermaid
+{% mermaid %}
 graph LR
-    A[开机] --> B[BIOS自检]
-    B --> C[找硬盘设备]
-    C --> D[解析MBR]
-    D --> E[执行PBR]
-    E --> F[启动grub/bootmgr]
-    F --> G[进入系统]
-```
+  A[开机] --> B[BIOS自检]
+  B --> C[找硬盘设备]
+  C --> D[解析MBR]
+  D --> E[执行PBR]
+  E --> F[启动grub/bootmgr]
+  F --> G[进入系统]
+{% endmermaid %}
 
 UEFI就做得不错了，它的层次分的很清楚：主板上的NVRAM存储启动配置，UEFI直接根据这个索引找到ESP分区，加载里面的`.efi`引导程序文件，然后引导程序文件负责解析文件系统找到内核。由于ESP分区大小可调，并且相比PBR而言非常充裕，因此`.efi`文件可以内置大部分文件系统的完整驱动，不再需要费尽心思砍功能来塞进PBR里了。
 
-```mermaid
+{% mermaid %}
 graph LR
-    A[开机] --> B[UEFI最小化自检]
-    B --> C[访问NVRAM]
-    C --> D[直接打开ESP]
-    D --> E[执行efi文件]
-    E --> F[进入系统]
-```
+  A[开机] --> B[UEFI最小化自检]
+  B --> C[访问NVRAM]
+  C --> D[直接打开ESP]
+  D --> E[执行efi文件]
+  E --> F[进入系统]
+{% endmermaid %}
 
 当然，BIOS的硬件限制还是摆在那里，ESP分区的格式必须为FAT32，并且不可修改为别的文件系统，否则UEFI固件无法读取它。不排除某些厂商往BIOS里额外塞驱动，但是总归没人往里面塞ext4或btrfs的驱动。
 
 ArchLinux不管内核是什么版本，`/boot`里的`initramfs`镜像和内核文件的名称都是不变的，这使得通过grub来启动任意快照的Linux而不修改ESP分区内容变得可能。
 
-{% endfolding %}
+{% endnote %}
 
-{% noteblock warning::避坑 %}
+{% note warning %}
 
 需要注意的是，一些较早的教程可能仍建议将 ESP 分区挂载到 /boot。例如，作者一开始是照着以下这个视频来装Arch的：
 
-{% link 「Archlinux究极指南2025」从手动安装到显卡直通，最后删除Linux::https://www.bilibili.com/video/BV1L2gxzVEgs/ %}
+[「Archlinux究极指南2025」从手动安装到显卡直通，最后删除Linux](https://www.bilibili.com/video/BV1L2gxzVEgs/)
 
 这个视频现在看来有诸多错误，最严重的就是选择将ESP分区挂载到`/boot`。
 新用户很容易掉进这个视频的陷阱。尽管原作者已经发布了正确安装的视频，并且在评论区置顶了新视频和相关说明，但是他没有删除旧视频，而旧视频仍然在B站`ArchLinux安装`搜索结果的高位；与此同时，新视频更多的是“Linux上手全过程指南”，而与安装Arch没有强相关，因此直接搜索`Archlinux安装`的用户很容易被误导。
 
-{% endnoteblock %}
+{% endnote %}
 
 ## 迁移教程
 
@@ -153,6 +155,8 @@ PS.我这里还有一个`BackupSbb.bin`文件，查询之后发现是一个UEFI�
 
 在你按照上面的指导完成修改后，需要注意，**它只是让你可以安全地回滚内核了。** 对于整个系统核心组件彻底滚炸（连tty都进不了）的情况，由于无法调用btrfs的操作命令，仍然需要依赖Arch Live CD来进行回滚操作。
 
-{% note warning::注意：执行以下内容也需要（按照本文教程）将ESP分区挂到`/efi`以让内核也能够被快照。 %}
+{% note warning %}
+注意：执行以下内容也需要（按照本文教程）将ESP分区挂到`/efi`以让内核也能够被快照。
+{% endnote %}
 
 如果你不希望随身带一个Arch Live CD，可以使用`snap-pac`，`grub-btrfs`，`snap-pac-grub`这一套工具链，它通过`pacman钩子`来自动更新grub里的快照启动项。或者，直接换用`rEFInd`作为引导程序来自动查找btrfs子卷里的Linux。详情可以去查看[ArchLinux中文维基](https://wiki.archlinuxcn.org/wiki/Snapper#%E6%8F%90%E7%A4%BA%E4%B8%8E%E6%8A%80%E5%B7%A7)的相关说明。它也提供了关于建议的子卷配置和非只读快照的建议。
