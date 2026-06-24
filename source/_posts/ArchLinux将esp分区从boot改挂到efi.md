@@ -37,23 +37,23 @@ PS.在Legacy环境下能够“免boot分区”启动NTFS文件系统上的Window
 
 {% mermaid %}
 graph LR
-    A[开机] --> B[BIOS自检]
-    B --> C[找硬盘设备]
-    C --> D[解析MBR]
-    D --> E[执行PBR]
-    E --> F[启动grub/bootmgr]
-    F --> G[进入系统]
+  A[开机] --> B[BIOS自检]
+  B --> C[找硬盘设备]
+  C --> D[解析MBR]
+  D --> E[执行PBR]
+  E --> F[启动grub/bootmgr]
+  F --> G[进入系统]
 {% endmermaid %}
 
 UEFI就做得不错了，它的层次分的很清楚：主板上的NVRAM存储启动配置，UEFI直接根据这个索引找到ESP分区，加载里面的`.efi`引导程序文件，然后引导程序文件负责解析文件系统找到内核。由于ESP分区大小可调，并且相比PBR而言非常充裕，因此`.efi`文件可以内置大部分文件系统的完整驱动，不再需要费尽心思砍功能来塞进PBR里了。
 
 {% mermaid %}
 graph LR
-    A[开机] --> B[UEFI最小化自检]
-    B --> C[访问NVRAM]
-    C --> D[直接打开ESP]
-    D --> E[执行efi文件]
-    E --> F[进入系统]
+  A[开机] --> B[UEFI最小化自检]
+  B --> C[访问NVRAM]
+  C --> D[直接打开ESP]
+  D --> E[执行efi文件]
+  E --> F[进入系统]
 {% endmermaid %}
 
 当然，BIOS的硬件限制还是摆在那里，ESP分区的格式必须为FAT32，并且不可修改为别的文件系统，否则UEFI固件无法读取它。不排除某些厂商往BIOS里额外塞驱动，但是总归没人往里面塞ext4或btrfs的驱动。
