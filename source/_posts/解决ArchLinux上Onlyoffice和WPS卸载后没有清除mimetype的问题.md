@@ -35,11 +35,13 @@ WPS注册的MIME类型的XML配置在`~/.local/share/mime/packages/Override.xml`
 
 删除完该文件之后，我们还要重新建立一下MIME数据库：`update-mime-database ~/.local/share/mime`
 
-{% noteblock info::快速在一堆文件里找特定内容 %}
+{% note info %}
+
+## 快速在一堆文件里找特定内容
 
 当遇到像我们现在这样需要在一堆文件里搜索指定字符串时，一个个文件打开搜索很显然是不现实的。`grep`命令提供了一个非常好用的方法：`-r`参数。使用`grep -r 要搜索的字符串`，可以从当前目录开始向下递归搜索每一个文件，看看有没有你要检索的关键词。它还会自动跳过二进制文件，相当智能。
 
-{% endnoteblock %}
+{% endnote %}
 
 ### ONLYOFFICE
 

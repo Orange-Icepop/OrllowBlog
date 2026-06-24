@@ -60,7 +60,7 @@ ArchLinux不管内核是什么版本，`/boot`里的`initramfs`镜像和内核�
 
 {% endfolding %}
 
-{% noteblock warning::避坑 %}
+{% note warning %}
 
 需要注意的是，一些较早的教程可能仍建议将 ESP 分区挂载到 /boot。例如，作者一开始是照着以下这个视频来装Arch的：
 
@@ -69,7 +69,7 @@ ArchLinux不管内核是什么版本，`/boot`里的`initramfs`镜像和内核�
 这个视频现在看来有诸多错误，最严重的就是选择将ESP分区挂载到`/boot`。
 新用户很容易掉进这个视频的陷阱。尽管原作者已经发布了正确安装的视频，并且在评论区置顶了新视频和相关说明，但是他没有删除旧视频，而旧视频仍然在B站`ArchLinux安装`搜索结果的高位；与此同时，新视频更多的是“Linux上手全过程指南”，而与安装Arch没有强相关，因此直接搜索`Archlinux安装`的用户很容易被误导。
 
-{% endnoteblock %}
+{% endnote %}
 
 ## 迁移教程
 
@@ -153,6 +153,8 @@ PS.我这里还有一个`BackupSbb.bin`文件，查询之后发现是一个UEFI�
 
 在你按照上面的指导完成修改后，需要注意，**它只是让你可以安全地回滚内核了。** 对于整个系统核心组件彻底滚炸（连tty都进不了）的情况，由于无法调用btrfs的操作命令，仍然需要依赖Arch Live CD来进行回滚操作。
 
-{% note warning::注意：执行以下内容也需要（按照本文教程）将ESP分区挂到`/efi`以让内核也能够被快照。 %}
+{% note warning %}
+注意：执行以下内容也需要（按照本文教程）将ESP分区挂到`/efi`以让内核也能够被快照。
+{% endnote %}
 
 如果你不希望随身带一个Arch Live CD，可以使用`snap-pac`，`grub-btrfs`，`snap-pac-grub`这一套工具链，它通过`pacman钩子`来自动更新grub里的快照启动项。或者，直接换用`rEFInd`作为引导程序来自动查找btrfs子卷里的Linux。详情可以去查看[ArchLinux中文维基](https://wiki.archlinuxcn.org/wiki/Snapper#%E6%8F%90%E7%A4%BA%E4%B8%8E%E6%8A%80%E5%B7%A7)的相关说明。它也提供了关于建议的子卷配置和非只读快照的建议。

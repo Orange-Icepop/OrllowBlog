@@ -44,9 +44,9 @@ date: 2026-01-27 07:01:38
 ACTION!="remove", SUBSYSTEMS=="usb", ATTRS{idVendor}=="vendor_id", ATTRS{idProduct}=="product_id", MODE="0660", TAG+="uaccess"
 ```
 
-{% noteblock warning::注意 %}
+{% note warning %}
 为了使任何添加 `uaccess` 标签的规则生效，其定义所在文件的名称必须在字典顺序上先于 `/usr/lib/udev/rules.d/73-seat-late.rules`。简单而言，`.rules`文件开头的数字必须是小于73的两位数（建议为71或70）。
-{% endnoteblock %}
+{% endnote %}
 
 {% endblockquote %}
 
