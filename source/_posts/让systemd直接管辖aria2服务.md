@@ -60,7 +60,7 @@ SyslogIdentifier=aria2c
 WantedBy=multi-user.target
 ```
 
-按Esc退出编辑模式，输入{% span code:::wq %}（有个冒号别漏了）保存并退出。
+按Esc退出编辑模式，输入 `:wq`（有个冒号别漏了）保存并退出。
 
 ### 二、替换原有SysV文件
 

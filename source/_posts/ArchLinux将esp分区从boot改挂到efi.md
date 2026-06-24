@@ -27,7 +27,9 @@ btrfs 因其快照功能，成为许多 Arch Linux 用户在滚动更新中的�
  - 系统盘文件系统是ext4等不具备快照/回滚功能的文件系统：没有快照和回滚功能，不用操心这事儿。
  - Legacy（非UEFI）启动模式：真的有人成功过吗？Legacy模式几乎不存在从btrfs文件系统的Linux启动的方法。
 
-{% folding cyan open::关于ESP分区 %}
+{% note info %}
+
+## 关于ESP分区
 
 在UEFI之前，传统的BIOS+MBR模式直接把操作系统引导程序的加载器（PBR）写进MBR（主引导记录）里，简单是简单，但是MBR本身就多大点地儿，存分区表还不够呢。位置也很尴尬，PBR和分区表混在一起，引导程序和操作系统文件混在一起，一点都不符合解耦原则。并且，一旦文件系统麻烦一点（比如btrfs这种有子卷，需要额外驱动的），MBR就没辙了，只能指望grub2给你在`/boot`（FAT32）里存了个btrfs驱动，不仅麻烦还不稳定。
 
@@ -58,7 +60,7 @@ graph LR
 
 ArchLinux不管内核是什么版本，`/boot`里的`initramfs`镜像和内核文件的名称都是不变的，这使得通过grub来启动任意快照的Linux而不修改ESP分区内容变得可能。
 
-{% endfolding %}
+{% endnote %}
 
 {% note warning %}
 

@@ -18,13 +18,13 @@ date: 2025-02-12 11:35:51
 
 然而，有一个办法可以大致上区分各种服务器核心，那就是检查.jar文件内的`META-INF/MANIFEST.MF`文件。
 
-{% folding cyan::关于MAINFEST.MF %}
+{% note info %}
 
 `MANIFEST.MF`文件是Java平台的一种规范，用于定义和管理Java应用程序的组件、库和模块。它是JAR文件中的一个纯文本文件，遵循特定的格式规范。
 
 在JAR文件中，`MANIFEST.MF`文件必须位于META-INF目录下，且一个JAR文件中只能有一个`MANIFEST.MF`文件。
 
-{% endfolding %}
+{% endnote %}
 
 在MANIFEST.MF文件中，Main-Class字段向Java虚拟机指明了该文件的主类，以使jar文件能够正常执行。在较新的MC版本中都会具有`Main-Class`字段（目前已知的只有远古版本没有）。由于不同的核心都会有自己的主类名称，因此可以通过这个特征在MC开服器中分辨其核心类型。
 
