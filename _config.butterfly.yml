@@ -27,25 +27,25 @@ menu:
 # 代碼塊設置
 # --------------------------------------
 
-# code_blocks:
-#   # 代碼塊主題: darker / pale night / light / ocean / false
-#   theme: darker
-#   # 是否使用 Mac 風格
-#   macStyle: false
-#   # 代碼塊高度限制（單位: px）
-#   height_limit: false
-#   # 是否自動換行
-#   word_wrap: false
+code_blocks:
+  # 代碼塊主題: darker / pale night / light / ocean / false
+  theme: darker
+  # 是否使用 Mac 風格
+  macStyle: false
+  # 代碼塊高度限制（單位: px）
+  height_limit: false
+  # 是否自動換行
+  word_wrap: false
 
-#   # 工具欄
-#   # 是否顯示複製按鈕
-#   copy: true
-#   # 是否顯示語言標籤
-#   language: true
-#   # true: 收縮代碼塊 | false: 展開代碼塊 | none: 展開代碼塊並隱藏按鈕
-#   shrink: false
-#   # 是否顯示全屏顯示代碼塊按鈕
-#   fullpage: false
+  # 工具欄
+  # 是否顯示複製按鈕
+  copy: true
+  # 是否顯示語言標籤
+  language: true
+  # true: 收縮代碼塊 | false: 展開代碼塊 | none: 展開代碼塊並隱藏按鈕
+  shrink: false
+  # 是否顯示全屏顯示代碼塊按鈕
+  fullpage: false
 
 # 社交媒體鏈接
 # 格式:
