@@ -43,7 +43,7 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
-syntax_highlighter: highlight.js
+syntax_highlighter:
 highlight:
   line_number: true
   auto_detect: false
@@ -54,9 +54,9 @@ prismjs:
   preprocess: true
   line_number: false
   tab_replace: ''
-shiki:
-  theme: "github-dark"
-  strip_indent: true # Strip the leading indent of the code block (default: true, just like the official highlighter)
+# shiki:
+#   theme: "github-dark"
+#   strip_indent: true # Strip the leading indent of the code block (default: true, just like the official highlighter)
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -115,11 +115,11 @@ abbrlink:
   writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)
 
 # shiki
-# shiki:
-#   theme: github-dark
-#   line_number: true
-#   beautify: false
-#   highlight_copy: true
-#   highlight_lang: true
-#   highlight_height_limit: 360
-#   is_highlight_shrink: false
+shiki:
+  theme: github-dark
+  line_number: true
+  beautify: false
+  highlight_copy: true
+  highlight_lang: true
+  highlight_height_limit: 360
+  is_highlight_shrink: false

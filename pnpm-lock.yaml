@@ -41,9 +41,9 @@ importers:
       hexo-server:
         specifier: ^3.0.0
         version: 3.0.0
-      hexo-shiki-highlighter:
-        specifier: ^0.2.2
-        version: 0.2.2(hexo@8.1.2(chokidar@3.6.0))
+      hexo-shiki-plugin:
+        specifier: ^1.0.28
+        version: 1.0.28
       hexo-theme-butterfly:
         specifier: ^5.5.5
         version: 5.5.5
@@ -465,10 +465,9 @@ packages:
     resolution: {integrity: sha512-u4s0ty9Aew6jV+a9oMrXBwhrRpUQ0U8PWM/88a5aHgDru58VY81mVrxOFxs788NAsWQ8OvsJtF5m7mnXoRnSIA==}
     engines: {node: '>=12.13.0'}
 
-  hexo-shiki-highlighter@0.2.2:
-    resolution: {integrity: sha512-gs5mJ2Orb99eLurVSYFNsqjkSNsBNArvt8O0l3372F0vbANa3DKJ8oqdk2NtojTR/dzoMo1eMV7UkiSCZcbqSA==}
-    peerDependencies:
-      hexo: ^7.0.0
+  hexo-shiki-plugin@1.0.28:
+    resolution: {integrity: sha512-BTcbuycqP/iMduSF7nn3bfNA+lMWOjucUm9cQnKnVzYytRIm280M8/by0Y5uJR80mkfQemQ0KlwYVKiSVEvWMg==}
+    engines: {node: '>=24.14.1'}
 
   hexo-theme-butterfly@5.5.5:
     resolution: {integrity: sha512-MAyRxbMHHEVqdLNp/HPTB8k8WR4F7OafrBb55w/hi24HmnaMFCXA54SM0lhGiIBiL+W2cPJv1Ng7XDIHVp5/kQ==}
@@ -1412,9 +1411,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  hexo-shiki-highlighter@0.2.2(hexo@8.1.2(chokidar@3.6.0)):
-    dependencies:
-      hexo: 8.1.2(chokidar@3.6.0)
+  hexo-shiki-plugin@1.0.28: {}
 
   hexo-theme-butterfly@5.5.5:
     dependencies:
