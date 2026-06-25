@@ -347,7 +347,7 @@ aside:
     # 是否顯示公告卡片
     enable: true
     # 公告內容
-    content: This is my Blog
+    content: 欢迎来到橙子冰棒的博客！你真是找到宝了～
   card_recent_post:
     # 是否顯示最近文章卡片
     enable: true

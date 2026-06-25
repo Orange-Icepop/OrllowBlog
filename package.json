@@ -26,5 +26,5 @@
     "hexo-shiki-highlighter": "^0.2.2",
     "hexo-theme-butterfly": "^5.5.5"
   },
-  "packageManager": "pnpm@8.15.0"
+  "packageManager": "pnpm@11.3.0"
 }
