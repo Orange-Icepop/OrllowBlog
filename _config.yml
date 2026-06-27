@@ -126,4 +126,4 @@ shiki:
   copy: # copy message
     success: 'Copy Success'
     error: 'Copy Error'
-    no_support: 'Browser Not Support'
+    no_support: 'Browser Not Support' 
