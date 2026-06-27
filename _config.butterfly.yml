@@ -1227,7 +1227,7 @@ css_prefix: true
 # 插入代碼到 head（在 '</head>' 標籤之前）和底部（在 '</body>' 標籤之前）
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    # - <link rel="stylesheet" href="/css/custom.css">
   bottom:
     # - <script src="xxxx"></script>
 

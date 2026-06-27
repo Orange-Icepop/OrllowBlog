@@ -43,7 +43,7 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
-syntax_highlighter:
+syntax_highlighter: 
 highlight:
   line_number: true
   auto_detect: false
@@ -54,9 +54,6 @@ prismjs:
   preprocess: true
   line_number: false
   tab_replace: ''
-# shiki:
-#   theme: "github-dark"
-#   strip_indent: true # Strip the leading indent of the code block (default: true, just like the official highlighter)
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -116,10 +113,17 @@ abbrlink:
 
 # shiki
 shiki:
-  theme: github-dark
-  line_number: true
-  beautify: false
-  highlight_copy: true
-  highlight_lang: true
-  highlight_height_limit: 360
-  is_highlight_shrink: false
+  theme: github-dark # highlight-theme
+  line_number: true # whether to show the line_number
+  beautify: false # whether to add highlight tool true or false
+  colorized_brackets: true # colorize nested brackets via @shikijs/colorized-brackets
+  highlight_copy: true # copy button
+  highlight_lang: false # show the code language
+  highlight_height_limit: 360 # code-block max height,unit: px
+  is_highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
+  skip_languages: # languages that should not be highlighted by shiki
+    - mermaid
+  copy: # copy message
+    success: 'Copy Success'
+    error: 'Copy Error'
+    no_support: 'Browser Not Support'
