@@ -115,10 +115,10 @@ abbrlink:
 shiki:
   theme: github-dark # highlight-theme
   line_number: true # whether to show the line_number
-  beautify: false # whether to add highlight tool true or false
+  beautify: true # whether to add highlight tool true or false
   colorized_brackets: true # colorize nested brackets via @shikijs/colorized-brackets
   highlight_copy: true # copy button
-  highlight_lang: false # show the code language
+  highlight_lang: true # show the code language
   highlight_height_limit: 360 # code-block max height,unit: px
   is_highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
   skip_languages: # languages that should not be highlighted by shiki
