@@ -43,7 +43,7 @@ sudo dnf copr enable bieszczaders/kernel-cachyos-addons
 sudo dnf install scx-scheds
 ```
 
-EPEL 10 架构的发行版（如Rocky Linux 10）可以启用一个专门为 EPEL 10 编译了相关包的仓库：
+EL 10 架构的发行版（如Rocky Linux 10）可以启用一个专门为 EL 10 编译了相关包的仓库：
 
 ```shell
 sudo dnf copr enable andersrh/kernel-cachyos-addons-el10
@@ -52,7 +52,7 @@ sudo dnf install scx-scheds
 
 COPR 为社区仓库，启用请自行负责。
 
-由于 EPEL 10 使用的刚好是 Linux 6.12，因此更老的 EPEL 发行版无法使用sched-ext，也就不用想着安装了。
+由于 EL 10 使用的刚好是 Linux 6.12，因此更老的 EL 发行版无法使用sched-ext，也就不用想着安装了。
 
 {% endnote %}
 
