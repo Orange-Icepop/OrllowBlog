@@ -23,7 +23,7 @@
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-shiki-highlighter": "^0.2.2",
+    "hexo-shiki-plugin": "^1.0.32",
     "hexo-theme-butterfly": "^5.5.5"
   },
   "packageManager": "pnpm@11.3.0"
