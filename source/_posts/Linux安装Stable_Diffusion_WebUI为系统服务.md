@@ -42,7 +42,7 @@ conda是一个包和环境管理工具，能够创建高度独立的python环境
 
 在Linux终端中逐行输入以下命令：
 
-``` bash
+``` shell
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash ./Miniconda3-latest-Linux-x86_64.sh
 ```
@@ -59,7 +59,7 @@ bash ./Miniconda3-latest-Linux-x86_64.sh
 
 重启之后会自动进入基础conda环境(base)，输入以下命令以禁用该功能：
 
-``` bash
+``` shell
 conda config --set auto_activate_base false
 ```
 
@@ -71,7 +71,7 @@ conda config --set auto_activate_base false
 
 先安装好git。不同的Linux系统上安装git的方法都不太一样，比如在Ubuntu和Debian上可以直接通过apt安装：
 
-``` bash
+``` shell
 sudo apt install git
 ```
 
@@ -79,50 +79,50 @@ sudo apt install git
 
 输入以下代码来拉取SD：
 
-``` bash
+``` shell
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
 ```
 
 如果你没有能够访问GitHub的环境，可以使用代理站（不能保证永久可用，可以查看[Github Proxy 文件代理加速](https://github.akams.cn/)来寻找可用源）。
 
-``` bash
+``` shell
 git clone https://github.proxy.class3.fun/https://github.com/AUTOMATIC1111/stable-diffusion-webui
 ```
 
 等待进度条走完，然后进入目录：
 
-``` bash
+``` shell
 cd stable-diffusion-webui
 ```
 
 创建并进入conda环境：
 
-``` bash
+``` shell
 conda create -n sd-webui
 conda activate sd-webui
 ```
 
 安装依赖项：
 
-``` bash
+``` shell
 pip install -r requirements.txt
 ```
 
 切换huggingface源为镜像站：
 
-``` bash
+``` shell
 export HF_ENDPOINT=https://hf-mirror.com
 ```
 
 如果你是普通的N卡（不是P104这种把半精度阉割了的），直接运行以下命令即可开始运行：
 
-``` bash
+``` shell
 python ./launch.py --listen
 ```
 
 皮衣刀客把某些矿卡阉割了半精度，此时需要禁用半精度，否则出图会很慢：
 
-``` bash
+``` shell
 python ./launch.py --listen --no-half --no-half-vae
 ```
 
@@ -134,17 +134,17 @@ webui.sh是经过了高度整合的打包运行脚本，理论上来讲是完全
 
 在服务器环境中，每次重启后都手动启动SD显然是不方便的，因此可以考虑将它配置为系统服务，这样需要的时候可以立刻开始出图。在Linux中，一般使用systemctl来管理系统服务，我们也可以自己编写配置单元文件来创建服务。服务单元文件位于`/etc/systemd/system/`下，以.service结尾。
 
-SD的启动可以使用bash脚本进行，这是在Linux下最方便的方式。cd到SD目录中，输入如下指令创建脚本：
+SD的启动可以使用shell脚本进行，这是在Linux下最方便的方式。cd到SD目录中，输入如下指令创建脚本：
 
-``` bash
+``` shell
 vim launch.sh
 ```
 
 按i开始编辑。
 
-在bash脚本中，`conda activate`命令是要在source完conda的运行文件之后才能直接使用的：
+在shell脚本中，`conda activate`命令是要在source完conda的运行文件之后才能直接使用的：
 
-``` bash
+``` shell
 #!/bin/bash
 source /home/{username}/miniconda3/etc/profile.d/conda.sh
 conda activate {venv_name}
@@ -152,7 +152,7 @@ conda activate {venv_name}
 
 实际使用时，需要将以上代码中的`{username}`替换成安装conda的用户名，或者将source的文件路径改成你conda的安装目录下的conda.sh。`{venv_name}`也需要替换成你的conda环境名称，本例中是`sd-webui`。
 
-``` bash
+``` shell
 #!/bin/bash
 source /home/{username}/miniconda3/etc/profile.d/conda.sh
 conda activate sd-webui
@@ -165,7 +165,7 @@ python3 /port-apps/stable-diffusion-webui/launch.py --enable-insecure-extension-
 
 先`bash ./launch.sh`测试一下，确保没报错后，开始编写配置单元文件：
 
-``` bash
+``` shell
 sudo vim /etc/systemd/system/sd-webui.service
 ```
 
@@ -195,13 +195,13 @@ WantedBy=multi-user.target
 
 重载systemctl：
 
-``` bash
+``` shell
 sudo systemctl daemon-reload
 ```
 
 尝试启动服务：
 
-``` bash
+``` shell
 sudo systemctl start sd-webui
 ```
 

@@ -16,7 +16,7 @@ date: 2025-09-30 06:10:37
 
 在Gnome桌面下，默认的图形配置界面里只支持OpenVPN/PPTP/WireGuard VPN，而无法配置基于IPsec/IKEv2的VPN（说来也奇怪，Windows下反而是内置了IKEv2和PPTP/L2TP等的客户端，而OpenVPN之类的才要额外客户端）。为了支持IKEv2，我们需要使用的是`strongSwan`，最重要的是其图形配置前端`network-manager-strongswan`。
 
-```bash
+```shell
 sudo apt install network-manager-strongswan
 ```
 
@@ -32,7 +32,7 @@ sudo apt install network-manager-strongswan
 
 在桌面环境下最烦人的一点就是看不到配置出问题了之后的报错，想看也很简单：
 
-```bash
+```shell
 sudo journalctl -u NetworkManager.service -f
 ```
 
@@ -40,7 +40,7 @@ tips：桌面环境下查看NetworkManager日志
 
 在桌面环境下最烦人的一点就是看不到配置出问题了之后的报错，想看也很简单：
 
-```bash
+```shell
 sudo journalctl -u NetworkManager.service -f
 ```
 
@@ -56,7 +56,7 @@ sudo journalctl -u NetworkManager.service -f
 
 简单来讲，就是不光要装strongswan在NetworkManager上的前端，还得把整个strongSwan和相关附属都装全。对于服务端来讲这是常识，我也不清楚为啥Gnome这帮家伙能想出一个前端能执行大部分业务这个点子的。
 
-```bash
+```shell
 sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins
 ```
 

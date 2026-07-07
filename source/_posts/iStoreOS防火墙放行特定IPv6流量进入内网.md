@@ -82,7 +82,7 @@ Windows自从很久之前开始就开始使用随机临时IPv6地址机制来保
 
 在管理员权限的Powershell中，执行`Get-NetIPv6Protocol`命令，输出应该类似如下：
 
-```bash
+```powershell
 DefaultHopLimit : 128
 NeighborCacheLimit(Entries) : 256
 RouteCacheLimit(Entries) : 4096

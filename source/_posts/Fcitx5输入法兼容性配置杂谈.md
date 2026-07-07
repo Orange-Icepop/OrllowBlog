@@ -41,14 +41,14 @@ gtk-im-module = fcitx
 Qt5与非KDE桌面也需要这些环境变量。
 {% endnote %}
 
-``` bash /etc/environment
+``` shell /etc/environment
 QT_IM_MODULES=wayland;fcitx
 QT_IM_MODULE=fcitx
 ```
 
 为了支持其他的XWayland应用程序：
 
-``` bash /etc/environment
+``` shell /etc/environment
 XMODIFIERS=@im=fcitx
 ```
 

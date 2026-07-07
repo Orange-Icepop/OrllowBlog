@@ -30,7 +30,7 @@ date: 2025-02-13 05:25:32
 
 ### 一、创建标准systemd服务文件
 
-``` bash
+``` shell
 sudo vim /etc/systemd/system/aria2.service
 ```
 
@@ -66,33 +66,33 @@ WantedBy=multi-user.target
 
 先停掉aria2服务：
 
-``` bash
+``` shell
 sudo systemctl stop aria2c
 sudo systemctl disable aria2c
 ```
 
 然后删除掉原有的SysV脚本：
 
-``` bash
+``` shell
 sudo rm /etc/init.d/aria2c 
 ```
 
 或者你也可以先备份到别的地方（例如用户主目录）避免褒姒：
 
-``` bash
+``` shell
 sudo mv /etc/init.d/aria2c ~
 ```
 
 然后重载系统服务，应用新配置：
 
-``` bash
+``` shell
 sudo systemctl daemon-reload
 sudo systemctl enable --now aria2
 ```
 
 最后验证确实在运行：
 
-``` bash
+``` shell
 systemctl status aria2
 ```
 

@@ -87,7 +87,7 @@ btrfs由于全都是子卷，挂载相比ext4等要麻烦许多。
 
 假设ESP分区是`nvme0n1p1`，系统分区是`nvme0n1p2`。执行时替换为你的实际对应分区。
 
-```bash
+```shell
 # 挂载系统分区
 mount -o subvol=@ /dev/nvme0n1p2 /mnt
 # 挂载ESP分区到正确的位置
@@ -100,7 +100,7 @@ mount --mkdir /dev/nvme0n1p1 /mnt/efi
 
 由于我们的内核文件之类的东西还留在ESP分区里，因此要先把它拷回到`/boot`。
 
-```bash
+```shell
 cp -a /mnt/efi/* /mnt/boot/
 ```
 
@@ -108,7 +108,7 @@ cp -a /mnt/efi/* /mnt/boot/
 
 ### 3.改fstab
 
-```bash
+```shell
 vim /mnt/etc/fstab
 ```
 
@@ -118,7 +118,7 @@ vim用不惯可以用nano，总之只要是文本编辑器就行。
 
 ### 4.chroot、重建initramfs与grub
 
-```bash
+```shell
 arch-chroot /mnt
 # 重新生成initramfs，确保其指向新的/boot路径
 mkinitcpio -P
@@ -130,7 +130,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 等待重建完成，应该就没什么大问题了。
 
-```bash
+```shell
 # 退出chroot环境
 exit
 # 卸载系统盘

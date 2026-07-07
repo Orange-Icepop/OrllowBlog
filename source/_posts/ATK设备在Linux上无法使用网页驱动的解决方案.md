@@ -52,7 +52,7 @@ ACTION!="remove", SUBSYSTEMS=="usb", ATTRS{idVendor}=="vendor_id", ATTRS{idProdu
 
 Wiki提供的配置和我们的目标大差不差，只需要将里面的`vendor_id`和`product_id`（均为字符串）改为ATK设备对应的即可。这两个参数可以通过`lsusb`命令来获取。
 
-```bash
+```shell
 $ lsusb
 # 命令输出中应当有你的ATK USB设备，格式大致如下：
 Bus 004 Device 011: ID 576f:112e HFD ATK A87Pro
