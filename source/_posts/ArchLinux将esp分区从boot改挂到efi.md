@@ -14,7 +14,13 @@ btrfs 因其快照功能，成为许多 Arch Linux 用户在滚动更新中的�
 
 ## 为什么会这样？
 
-在当代Linux的设计中，Linux镜像（包括传统vmlinuz镜像和[统一内核镜像](https://wiki.archlinuxcn.org/wiki/%E7%BB%9F%E4%B8%80%E5%86%85%E6%A0%B8%E6%98%A0%E5%83%8F)）是保存在/boot目录下的，每次你更新内核时，原始内核镜像都会被覆盖为新的内核镜像。但是，ESP分区（一般都）是FAT32文件系统，不受btrfs的快照保护。如果你把根目录回滚了，但是ESP还是新的内核，找不到匹配的headers和其他必要文件，就会直接导致系统崩溃。
+在当代Linux的设计中，Linux镜像是保存在/boot目录下的，每次你更新内核时，原始内核镜像都会被覆盖为新的内核镜像。一般情况下，ESP分区就挂载在/boot。但是，ESP分区是FAT32文件系统，不受btrfs的快照保护。如果你把根目录回滚了，但是/boot下的ESP里还是新的内核，找不到匹配的headers和其他必要文件，就会直接导致系统崩溃。
+
+{% note warning %}
+
+[统一内核镜像](https://wiki.archlinuxcn.org/wiki/%E7%BB%9F%E4%B8%80%E5%86%85%E6%A0%B8%E6%98%A0%E5%83%8F)(UKI)默认保存在ESP分区内，因此本文不会对使用UKI的用户有帮助，尽管确实起到了分离ESP与系统文件的作用。
+
+{% endnote %}
 
 怎么看有没有挂载对？终端里面`lsblk`一下，找到你的系统所在的物理硬盘。其中有一个很小的分区，大小约在400MB至1GB左右，一般排在你系统卷的前面。这就是ESP(EFI)分区。在这行的右边会显示这个分区的挂载点，如果显示`/efi`或者`/boot/efi`（不建议，但不影响回滚，就别去动它了）就是没问题的；如果直接一个`/boot`写在那里，那就是我们要解决的问题。
 
@@ -64,12 +70,13 @@ ArchLinux不管内核是什么版本，`/boot`里的`initramfs`镜像和内核�
 
 {% note warning %}
 
-需要注意的是，一些较早的教程可能仍建议将 ESP 分区挂载到 /boot。例如，作者一开始是照着以下这个视频来装Arch的：
+需要注意的是，一些较早的教程可能仍建议将 ESP 分区挂载到 /boot。在参照那些教程安装ArchLinux时，请注意参考[ArchWiki建议的挂载点](https://wiki.archlinuxcn.org/wiki/EFI_%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA#%E5%85%B8%E5%9E%8B%E6%8C%82%E8%BD%BD%E7%82%B9)。
 
-[「Archlinux究极指南2025」从手动安装到显卡直通，最后删除Linux](https://www.bilibili.com/video/BV1L2gxzVEgs/)
+{% endnote %}
 
-这个视频现在看来有诸多错误，最严重的就是选择将ESP分区挂载到`/boot`。
-新用户很容易掉进这个视频的陷阱。尽管原作者已经发布了正确安装的视频，并且在评论区置顶了新视频和相关说明，但是他没有删除旧视频，而旧视频仍然在B站`ArchLinux安装`搜索结果的高位；与此同时，新视频更多的是“Linux上手全过程指南”，而与安装Arch没有强相关，因此直接搜索`Archlinux安装`的用户很容易被误导。
+{% note warning %}
+
+使用GRUB引导时请注意，GRUB虽然支持从Btrfs子卷内的内核启动，但是其探测效率极低，将视启动条目中位于Btrfs内的项目数量使启动时间增加1至2秒。
 
 {% endnote %}
 
