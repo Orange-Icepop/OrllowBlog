@@ -45,8 +45,8 @@ importers:
         specifier: ^1.0.32
         version: 1.0.32
       hexo-theme-butterfly:
-        specifier: ^5.5.5
-        version: 5.5.5
+        specifier: ^5.6.0
+        version: 5.6.0
 
 packages:
 
@@ -469,8 +469,8 @@ packages:
     resolution: {integrity: sha512-7emTXAWccs9aYxLdi2guejb30oHkOJYC9D9VYEmjwZRo8VlKNUQxGHt5lhWDgdfaYF9pMxmEPhF4zbwoE1H2Zw==}
     engines: {node: '>=24.14.1'}
 
-  hexo-theme-butterfly@5.5.5:
-    resolution: {integrity: sha512-MAyRxbMHHEVqdLNp/HPTB8k8WR4F7OafrBb55w/hi24HmnaMFCXA54SM0lhGiIBiL+W2cPJv1Ng7XDIHVp5/kQ==}
+  hexo-theme-butterfly@5.6.0:
+    resolution: {integrity: sha512-qfL1+pmdXqp6unwilE3EMYPGgukyO5r5k7MplfhVAfvAgtv5M/PBNGmI/38nFG0mKE22PKlNVs0ehEFSYaOSHA==}
 
   hexo-util@0.6.3:
     resolution: {integrity: sha512-zPxaqCWZz3/25SAB4FlrRtWktJ+Pr+vBiv/nyHpXKgXPt1m70liViKlRwWLqDmRjJ72x6/k4qCEeXHajvcGHUw==}
@@ -1413,7 +1413,7 @@ snapshots:
 
   hexo-shiki-plugin@1.0.32: {}
 
-  hexo-theme-butterfly@5.5.5:
+  hexo-theme-butterfly@5.6.0:
     dependencies:
       hexo-renderer-pug: 3.0.0
       hexo-renderer-stylus: 3.0.1
