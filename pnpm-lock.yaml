@@ -42,8 +42,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       hexo-shiki-plugin:
-        specifier: ^1.0.32
-        version: 1.0.32
+        specifier: ^1.0.33
+        version: 1.0.33
       hexo-theme-butterfly:
         specifier: ^5.5.5
         version: 5.5.5
@@ -465,8 +465,8 @@ packages:
     resolution: {integrity: sha512-u4s0ty9Aew6jV+a9oMrXBwhrRpUQ0U8PWM/88a5aHgDru58VY81mVrxOFxs788NAsWQ8OvsJtF5m7mnXoRnSIA==}
     engines: {node: '>=12.13.0'}
 
-  hexo-shiki-plugin@1.0.32:
-    resolution: {integrity: sha512-7emTXAWccs9aYxLdi2guejb30oHkOJYC9D9VYEmjwZRo8VlKNUQxGHt5lhWDgdfaYF9pMxmEPhF4zbwoE1H2Zw==}
+  hexo-shiki-plugin@1.0.33:
+    resolution: {integrity: sha512-/ygCnVnAGZ+C31N3ZrMlMuowypcwkf6vLR+j7KC0eUGQ8uWzvbcUx4MENZnACoLNHEGiVMf1yNn9M1J9yq/0zg==}
     engines: {node: '>=24.14.1'}
 
   hexo-theme-butterfly@5.5.5:
@@ -1411,7 +1411,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  hexo-shiki-plugin@1.0.32: {}
+  hexo-shiki-plugin@1.0.33: {}
 
   hexo-theme-butterfly@5.5.5:
     dependencies:
