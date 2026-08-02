@@ -165,7 +165,7 @@ sudo pacman -S python-dbus python-gobject
 
 将该脚本以root所有权放置在 `/usr/local/bin/ppd-watcher.py` ，并标记为可执行。
 
-然后编写systemd单元（`/etc/systemd/system/ppd-watcher.service`）：
+然后编写systemd单元：
 
 ```ini /etc/systemd/system/ppd-watcher.service
 [Unit]

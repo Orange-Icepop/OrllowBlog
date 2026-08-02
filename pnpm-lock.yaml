@@ -42,11 +42,11 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       hexo-shiki-plugin:
-        specifier: ^1.0.32
-        version: 1.0.32
+        specifier: ^1.0.33
+        version: 1.0.33
       hexo-theme-butterfly:
-        specifier: ^5.5.5
-        version: 5.5.5
+        specifier: ^5.6.1
+        version: 5.6.1
 
 packages:
 
@@ -61,13 +61,13 @@ packages:
     resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.29.7':
-    resolution: {integrity: sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==}
+  '@babel/parser@7.29.8':
+    resolution: {integrity: sha512-E8lTAYNB1KW+FH+VGJuZM1ioAx2E6oVlvQFRrf5P8ZZmsiJXYAD9vTFV7yyEURNzgh1dFqMZuO6tUwcARbqFCA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/types@7.29.7':
-    resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
+  '@babel/types@7.29.8':
+    resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
   a-sync-waterfall@1.0.1:
@@ -127,11 +127,11 @@ packages:
   bluebird@3.7.2:
     resolution: {integrity: sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==}
 
-  brace-expansion@1.1.15:
-    resolution: {integrity: sha512-EwOCDEex4quD37XhqM3omwtMoJjr//isUZz1JopUNWms+4Z2ViyM/k1YIRePpoVNnQhENnxtFjLaxNHrT7xIUg==}
+  brace-expansion@1.1.18:
+    resolution: {integrity: sha512-Edep/X9fGqVNmzKBVsDYIOtD+z1tuezV70LBjdCst9Tqu76lsnvRiZ6oTic1n+/BIwX6QDGAO94PN4N2SADvtw==}
 
-  brace-expansion@2.1.1:
-    resolution: {integrity: sha512-WR1cURNjuvBLMZBMbqM0UoE+WAfdUcEV1ccD8PVBVOI+Z3ND4+SZbN8RsfT2bMuG1qwz5RFvPukSZm5fF2D5eA==}
+  brace-expansion@2.1.4:
+    resolution: {integrity: sha512-hGfVzPxthbf3+2yjg/RBs60cB0FhqBS/zvdV/4wn4/BmN0bNMMHPc4V/BbFieqf1TKAGGAHnY4eSjajCl0f2Xg==}
 
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
@@ -316,14 +316,14 @@ packages:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
 
-  fast-archy@1.0.0:
-    resolution: {integrity: sha512-j8CNf0sCX92BogtUZAMPhMj7p3nv7xxeETwfpVWQNQocC5b21FAa6bUzfuhcNoEa4f2RtDe5U3uY0NriH9nA7g==}
+  fast-archy@1.1.0:
+    resolution: {integrity: sha512-CECNuPvHraaAhtvyEj73We9z/sd+IjNvsnxdqvASSGoG6vdb1phgFw+YnP0VFcv47/jUEIH7Pt51vpldr6sM3A==}
 
   fast-equals@3.0.3:
     resolution: {integrity: sha512-NCe8qxnZFARSHGztGMZOO/PC1qa5MIFB5Hp66WdzbCRAz8U8US3bx1UTgLS49efBQPcUtO9gf5oVEY8o7y/7Kg==}
 
-  fast-text-table@1.0.1:
-    resolution: {integrity: sha512-KUwE3MizTzXwhrvTTEpWbug1ngV1zfjwzdxSkeWYGUoVGaaQoid+jxgg4zm4LB+OrtnD+X2xJFq7DCO3pc3fdQ==}
+  fast-text-table@1.1.0:
+    resolution: {integrity: sha512-Sy8/ESTt2nBEU45NGdgFzraZZAMH3C/pFpwsMdKOqRAlTMr6qbn66E8YTxsC4bkJaOhWqaBpEYfrN3CT8N/phw==}
 
   filelist@1.0.6:
     resolution: {integrity: sha512-5giy2PkLYY1cP39p17Ech+2xlpTRL9HLspOfEgm0L6CwBXBTgsK5ou0JtzYuepxkaQ/tvhCFIJ5uXo0OrM2DxA==}
@@ -465,12 +465,12 @@ packages:
     resolution: {integrity: sha512-u4s0ty9Aew6jV+a9oMrXBwhrRpUQ0U8PWM/88a5aHgDru58VY81mVrxOFxs788NAsWQ8OvsJtF5m7mnXoRnSIA==}
     engines: {node: '>=12.13.0'}
 
-  hexo-shiki-plugin@1.0.32:
-    resolution: {integrity: sha512-7emTXAWccs9aYxLdi2guejb30oHkOJYC9D9VYEmjwZRo8VlKNUQxGHt5lhWDgdfaYF9pMxmEPhF4zbwoE1H2Zw==}
+  hexo-shiki-plugin@1.0.33:
+    resolution: {integrity: sha512-/ygCnVnAGZ+C31N3ZrMlMuowypcwkf6vLR+j7KC0eUGQ8uWzvbcUx4MENZnACoLNHEGiVMf1yNn9M1J9yq/0zg==}
     engines: {node: '>=24.14.1'}
 
-  hexo-theme-butterfly@5.5.5:
-    resolution: {integrity: sha512-MAyRxbMHHEVqdLNp/HPTB8k8WR4F7OafrBb55w/hi24HmnaMFCXA54SM0lhGiIBiL+W2cPJv1Ng7XDIHVp5/kQ==}
+  hexo-theme-butterfly@5.6.1:
+    resolution: {integrity: sha512-bkCEvNPNZHAviIovnVai7QUjz/7XO6AWEyCS9mzrYnQXL+D03x15b6h685X54nMz86jLhJvSwAD/Tyi3atnuaw==}
 
   hexo-util@0.6.3:
     resolution: {integrity: sha512-zPxaqCWZz3/25SAB4FlrRtWktJ+Pr+vBiv/nyHpXKgXPt1m70liViKlRwWLqDmRjJ72x6/k4qCEeXHajvcGHUw==}
@@ -582,12 +582,12 @@ packages:
     peerDependencies:
       js-yaml: 4.x
 
-  js-yaml@3.15.0:
-    resolution: {integrity: sha512-ttBQIIQPDeLjpPOohtUdXuXUVoA2uIB6fEH9HyJ7234s5mBJ5wTx20njxplLZQgLaOfpmPQA7X2t5AX6tIPbog==}
+  js-yaml@3.15.1:
+    resolution: {integrity: sha512-S99WuO3HlhO3XN41EtYUNl9zzXjoJx7QvmipxsJVxtCBT0YHEFy+iOJhjSvrmV12nYhWpZaM8lPHkJm0yUMbag==}
     hasBin: true
 
-  js-yaml@4.3.0:
-    resolution: {integrity: sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==}
+  js-yaml@4.3.1:
+    resolution: {integrity: sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==}
     hasBin: true
 
   jsonparse@1.3.1:
@@ -656,8 +656,8 @@ packages:
   moment-timezone@0.5.48:
     resolution: {integrity: sha512-f22b8LV1gbTO2ms2j2z13MuPogNoh5UzxL3nzNAYKGraILnbGc9NEE6dyiiiLv46DGRb8A4kg8UKWLjPthxBHw==}
 
-  moment-timezone@0.6.2:
-    resolution: {integrity: sha512-lDsQv8FoGdBUdf0+TjGsq2orxKuXdwFlQ6Zw6TX3xIcTwTfEpCLyKqvEauvCHJ8iu3KBV8+uPhlv70YsNGdUBQ==}
+  moment-timezone@0.6.3:
+    resolution: {integrity: sha512-pVEPA/HCFHHbwJ130ywnzYuZpkEGcP6Daa/OwNebpA18MybeFHmQilAGGovXgWijQ8vQtmud9jZrziUBgsykfg==}
 
   moment@2.30.1:
     resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
@@ -672,8 +672,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  nanoid@3.3.15:
-    resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
+  nanoid@3.3.16:
+    resolution: {integrity: sha512-bzlKTyNJ7+LdGIIwy8ijFpIqEQIvafahV7eYykJ8Cvh42EdJeODoJ6gUJXpQJvej1BddH8OqTXZNE/KfbWAu8Q==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -979,11 +979,11 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.29.7': {}
 
-  '@babel/parser@7.29.7':
+  '@babel/parser@7.29.8':
     dependencies:
-      '@babel/types': 7.29.7
+      '@babel/types': 7.29.8
 
-  '@babel/types@7.29.7':
+  '@babel/types@7.29.8':
     dependencies:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
@@ -1017,7 +1017,7 @@ snapshots:
 
   babel-walk@3.0.0-canary-5:
     dependencies:
-      '@babel/types': 7.29.7
+      '@babel/types': 7.29.8
 
   balanced-match@1.0.2: {}
 
@@ -1029,12 +1029,12 @@ snapshots:
 
   bluebird@3.7.2: {}
 
-  brace-expansion@1.1.15:
+  brace-expansion@1.1.18:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
 
-  brace-expansion@2.1.1:
+  brace-expansion@2.1.4:
     dependencies:
       balanced-match: 1.0.2
 
@@ -1117,8 +1117,8 @@ snapshots:
 
   constantinople@4.0.1:
     dependencies:
-      '@babel/parser': 7.29.7
-      '@babel/types': 7.29.7
+      '@babel/parser': 7.29.8
+      '@babel/types': 7.29.8
 
   cross-spawn@4.0.2:
     dependencies:
@@ -1221,11 +1221,11 @@ snapshots:
 
   etag@1.8.1: {}
 
-  fast-archy@1.0.0: {}
+  fast-archy@1.1.0: {}
 
   fast-equals@3.0.3: {}
 
-  fast-text-table@1.0.1: {}
+  fast-text-table@1.1.0: {}
 
   filelist@1.0.6:
     dependencies:
@@ -1323,11 +1323,11 @@ snapshots:
 
   hexo-front-matter@1.0.0:
     dependencies:
-      js-yaml: 3.15.0
+      js-yaml: 3.15.1
 
   hexo-front-matter@4.2.1:
     dependencies:
-      js-yaml: 4.3.0
+      js-yaml: 4.3.1
 
   hexo-fs@3.1.0:
     dependencies:
@@ -1411,14 +1411,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  hexo-shiki-plugin@1.0.32: {}
+  hexo-shiki-plugin@1.0.33: {}
 
-  hexo-theme-butterfly@5.5.5:
+  hexo-theme-butterfly@5.6.1:
     dependencies:
       hexo-renderer-pug: 3.0.0
       hexo-renderer-stylus: 3.0.1
       hexo-util: 4.0.0
-      moment-timezone: 0.6.2
+      moment-timezone: 0.6.3
     transitivePeerDependencies:
       - supports-color
 
@@ -1466,16 +1466,16 @@ snapshots:
     dependencies:
       abbrev: 3.0.1
       bluebird: 3.7.2
-      fast-archy: 1.0.0
-      fast-text-table: 1.0.1
+      fast-archy: 1.1.0
+      fast-text-table: 1.1.0
       hexo-cli: 4.3.2
       hexo-front-matter: 4.2.1
       hexo-fs: 5.0.1
       hexo-i18n: 2.0.0
       hexo-log: 4.1.0
       hexo-util: 4.0.0
-      js-yaml: 4.3.0
-      js-yaml-js-types: 1.0.1(js-yaml@4.3.0)
+      js-yaml: 4.3.1
+      js-yaml-js-types: 1.0.1(js-yaml@4.3.1)
       micromatch: 4.0.8
       moize: 6.1.7
       moment: 2.30.1
@@ -1580,17 +1580,17 @@ snapshots:
 
   js-stringify@1.0.2: {}
 
-  js-yaml-js-types@1.0.1(js-yaml@4.3.0):
+  js-yaml-js-types@1.0.1(js-yaml@4.3.1):
     dependencies:
       esprima: 4.0.1
-      js-yaml: 4.3.0
+      js-yaml: 4.3.1
 
-  js-yaml@3.15.0:
+  js-yaml@3.15.1:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
 
-  js-yaml@4.3.0:
+  js-yaml@4.3.1:
     dependencies:
       argparse: 2.0.1
 
@@ -1633,11 +1633,11 @@ snapshots:
 
   minimatch@3.1.5:
     dependencies:
-      brace-expansion: 1.1.15
+      brace-expansion: 1.1.18
 
   minimatch@5.1.9:
     dependencies:
-      brace-expansion: 2.1.1
+      brace-expansion: 2.1.4
 
   minimist@1.2.8: {}
 
@@ -1650,7 +1650,7 @@ snapshots:
     dependencies:
       moment: 2.30.1
 
-  moment-timezone@0.6.2:
+  moment-timezone@0.6.3:
     dependencies:
       moment: 2.30.1
 
@@ -1670,7 +1670,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  nanoid@3.3.15: {}
+  nanoid@3.3.16: {}
 
   negotiator@0.6.4: {}
 
@@ -1954,7 +1954,7 @@ snapshots:
       hexo-log: 4.1.0
       is-plain-object: 5.0.0
       jsonparse: 1.3.1
-      nanoid: 3.3.15
+      nanoid: 3.3.16
       rfdc: 1.4.1
       through2: 4.0.2
 
@@ -1968,8 +1968,8 @@ snapshots:
 
   with@7.0.2:
     dependencies:
-      '@babel/parser': 7.29.7
-      '@babel/types': 7.29.7
+      '@babel/parser': 7.29.8
+      '@babel/types': 7.29.8
       assert-never: 1.4.0
       babel-walk: 3.0.0-canary-5
 
