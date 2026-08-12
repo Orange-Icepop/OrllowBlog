@@ -10,6 +10,12 @@ abbrlink: 5d7e2e40
 date: 2025-07-10 13:43:12
 ---
 
+{% note info %}
+
+对于不使用netplan的发行版，可以使用[systemd方案](/posts/b197b0f0/)或udev规则。
+
+{% endnote %}
+
 我不知道各位有没有碰到过类似的问题：你刚刚把你的Ubuntu计算机加好新硬件，插电开机（冷启动），然后SSH一登，Connection Timeout，回到本地一看，netplan给你写了份新的配置文件导致IP不同……
 
 {% asset_img invasion.webp 册那！ %}
