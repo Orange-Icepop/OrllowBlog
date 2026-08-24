@@ -70,7 +70,7 @@ avatar:
 disable_top_img: false
 
 # 如果頁面未設置橫幅，則顯示默認的橫幅圖片
-default_top_img:
+default_top_img: /images/background.webp
 
 # 主頁的橫幅圖片
 index_img: /images/background.webp
@@ -100,7 +100,7 @@ footer_img: false
 # 網站背景
 # 可以設置為顏色或圖片
 # 圖片格式: url(http://xxxxxx.com/xxx.jpg)
-background: white
+background: /images/background.webp
 
 # 封面設置
 cover:
@@ -878,11 +878,11 @@ site_verification:
 # 注意：顏色值必須用雙引號，如 "#000"，否則可能會導致錯誤！
 
 # 主題顏色配置
-# theme_color:
+theme_color:
 #   是否啟用主題顏色
-#   enable: true
+  enable: true
 #   主顏色
-#   main: "#49B1F5"
+  main: "#019eff"
 #   分頁器顏色
 #   paginator: "#00c4b6"
 #   按鈕懸停顏色
