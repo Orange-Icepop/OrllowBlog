@@ -11,9 +11,15 @@ abbrlink: 5a24709e
 date: 2026-09-19 01:31:22
 ---
 
+{% note warning %}
+
+本文章由AI主导撰写，可能在部分地方的表述过于晦涩，敬请知晓。
+
+{% endnote %}
+
 ## 问题
 
-Armbian 的部分内核配置里没有 BBR，这对于部分将开发板作为家用服务器的人来说是硬伤。。以 Allwinner sunxi64 的 `current` 分支6.18.33 为例，内核 `.config` 里是：
+Armbian 的部分内核配置里没有 BBR，这对于部分将开发板作为家用服务器的人来说是硬伤。以 Allwinner sunxi64 的 `current` 分支6.18.33 为例，内核 `.config` 里是：
 
 ```
 # CONFIG_TCP_CONG_BBR is not set
@@ -28,6 +34,21 @@ Armbian 的部分内核配置里没有 BBR，这对于部分将开发板作为�
 3. 把 BBR 编成一个树外（out-of-tree）模块。
 
 如果自己重新编译内核，不仅耗时耗力，还有可能丢失部分驱动和兼容性，因此本文选择自行编译树外模块。BBR算法由tcp_bbr.c提供且独立度很高，可以使用modprobe热加载，只要使用对应的内核headers，从对应的内核源码自行编译tcp_bbr.ko，然后丢到`/lib/modeules/{内核名称}`下面，就可以直接modprobe了。
+
+{% note info %}
+
+## 关于树外模块的几个提醒
+
+树外模块的技术原理是把库的链接推迟到了 `insmod`。编译阶段只用头文件，未定义的符号由内核在加载时用运行中内核的符号表解析。由于直接对内核的运行时二进制进行了修改，树外模块对于ABI非常敏感。下面是几个注意点：
+
+- **headers 必须与运行内核版本一致。** 这是最容易出问题的一环。版本不一致时，轻则编译报结构体成员不存在，重则编译通过但加载报 `Invalid module format` 或 `Unknown symbol`。
+- **编译不需要内核源码，但需要一棵完整可用的构建树** headers 包含生成的头文件、`scripts/`、`Module.symvers`、`.config` 等各种针对内核构建必要的配置。这就是为什么会存在 headers 包的缘故，它对于终端用户编译 dkms 等树外模块的帮助不只一星半点。
+- **`.c` 只能用内核已导出的符号。** `tcp_bbr.c` 满足这一点（只引用 9 个导出符号），所以单个文件就能编成模块——这是树外方案成立的前提。
+- **`.ko` 才是要用的文件**，`.o` 是中间产物。一次 `make` 会全部产出，拷到设备上的是 `.ko`。
+- **编译器用哪个通常无所谓。** vermagic 里不含编译器信息，kbuild 顶多打印一条版本不一致的 warning。**例外**见下文表格里的 CFI/LTO。
+- **BTF 相关的提示可以忽略。** 构建时出现 `Skipping BTF generation`、加载时出现 `missing module BTF` 都属正常，6.18 里这条只是告警，不影响 BBR 注册。
+
+{% endnote %}
 
 目前主要有两种方法：在设备上原生编译（方案 A），在 x64 主机上用 qemu + Docker 编译（方案 B）。两者产出的 `.ko` 是一样的，ARM设备如果CPU性能足够可以选方案 A ，性能不大够的话就选 B 。
 
@@ -62,41 +83,29 @@ which insmod modprobe depmod
 
 记下 `uname -r` 的完整输出和 `CONFIG_MODVERSIONS` 的状态，验证环节要用到。
 
-## 关于树外模块的原理
+## 方案 A：在设备上原生编译（AI推演，未验证）
 
-树外模块把链接推迟到 `insmod`：编译阶段只用头文件，未定义的符号由内核在加载时用运行中内核的符号表解析。下面每条都直接影响成败。
-
-- **headers 必须与运行内核版本一致。** 这是最容易出问题的一环。版本不一致时，轻则编译报结构体成员不存在，重则编译通过但加载报 `Invalid module format` 或 `Unknown symbol`。
-- **编译不需要内核源码，但 headers 包必须是一棵完整可用的构建树**（含生成的头文件、`scripts/`、`Module.symvers`、`.config`）。只拷一个 `include/` 目录编不动。
-- **`.c` 只能用内核已导出的符号。** `tcp_bbr.c` 满足这一点（只引用 9 个导出符号），所以单个文件就能编成模块——这是树外方案成立的前提。
-- **`.ko` 才是要用的文件**，`.o` 是中间产物。一次 `make` 会全部产出，拷到设备上的是 `.ko`。
-- **运行时打补丁由内核自动完成**（alternatives、ftrace 等），不需要任何额外配置。你在构建阶段什么都不用做。
-- **编译器用哪个通常无所谓。** vermagic 里不含编译器信息，kbuild 顶多打印一条版本不一致的 warning。例外见上面表格里的 CFI/LTO。
-- **BTF 相关的提示可以忽略。** 构建时出现 `Skipping BTF generation`、加载时出现 `missing module BTF` 都属正常，6.18 里这条只是告警，不影响 BBR 注册。
-
-## 方案 A：在设备上原生编译
-
-最省事的方案。要求设备上能装 headers 包、有 `make` 和 `gcc`。
+最省事的方案。要求设备上能装 headers 包、有 `make` 和 `gcc`。一般而言推荐性能足够的设备完成，像我的 H618 还是省省吧。
 
 ### A1. 装 headers
 
 ```bash
 sudo apt update
-sudo apt install -y linux-headers-current-sunxi64
+sudo apt install -y linux-headers-current-sunxi64 #example
 ```
 
-包名由内核 flavour 决定，用这条确认：
+包名由内核偏好决定，用这条确认：
 
 ```bash
-uname -r                                  # 6.18.33-current-sunxi64
-apt-cache search linux-headers | grep sunxi64
+uname -r # 6.18.33-current-sunxi64, example
+apt-cache search linux-headers | grep sunxi64 #example
 ```
 
 装完检查构建目录链接：
 
 ```bash
 ls -l /lib/modules/$(uname -r)/build
-# 应指向 /usr/src/linux-headers-6.18.33-current-sunxi64
+# 在本例中应指向 /usr/src/linux-headers-6.18.33-current-sunxi64
 
 ls /usr/src/linux-headers-$(uname -r)/Module.symvers
 ```
@@ -187,13 +196,8 @@ sudo modprobe tcp_bbr
 ```bash
 cat /proc/sys/net/ipv4/tcp_available_congestion_control
 sudo sysctl -w net.ipv4.tcp_congestion_control=bbr
+sudo sysctl -w net.core.default_qdisc=fq #BBR 还需要 fq 控制队列调度
 cat /proc/sys/net/ipv4/tcp_congestion_control
-```
-
-BBR 需要 pacing，配 `fq` 队列规则（`eth0` 换成实际出口网卡）：
-
-```bash
-sudo tc qdisc replace dev eth0 root fq
 ```
 
 开机自动加载：
@@ -203,11 +207,11 @@ echo tcp_bbr | sudo tee /etc/modules-load.d/bbr.conf
 echo 'net.ipv4.tcp_congestion_control = bbr' | sudo tee /etc/sysctl.d/99-bbr.conf
 ```
 
-## 方案 B：在 x64 主机上用 qemu + Docker
+## 方案 B：在 x64 主机上用 qemu + Docker （已验证）
 
 适合设备上没有编译环境，或者不想在设备上装一堆 `-dev` 包的情况。
 
-这里不是传统意义的交叉编译，而是在 x64 上跑一个 **arm64 的 Docker 容器**，容器里是目标的 aarch64 原生工具链，由 qemu-user + binfmt_misc 执行。好处是工具链与设备上的发行版一致，省掉配交叉工具链的麻烦；代价是编译速度受模拟影响，比方案 A 慢。
+这里不是传统意义的交叉编译，而是在 x64 上跑一个 **arm64 的 Docker 容器**，容器里是目标的 aarch64 原生工具链，由 qemu-user + binfmt_misc 执行。好处是工具链与设备上的发行版一致，省掉配交叉工具链的麻烦；代价是编译速度受模拟影响，比方案 A 慢，不过一般也慢不到哪里去。
 
 ### B1. 取对应版本的 headers .deb
 
@@ -335,7 +339,7 @@ file "$MODDIR/tcp_bbr.ko"
 
 ### B7. 一个环境相关的坑
 
-如果宿主机的 `$HOME` 不可写（某些沙箱环境如此），`docker build` 会因为无法创建 `$HOME/.docker` 而失败：
+如果宿主机的 `$HOME` 不可写（某些沙箱环境，比如我用的deepseek harness帮我干这个活的），`docker build` 会因为无法创建 `$HOME/.docker` 而失败：
 
 ```
 ERROR: mkdir /opt/dsh/data/.docker: read-only file system
@@ -371,8 +375,6 @@ done
 
 第 3 条每一项都是 0 才说明全部可解析。
 
-`Module.symvers` 是制表符分隔的三列 `<crc> <symbol> <module>`，所以上面用 `awk` 按字段比对。不要用 `grep "\t$s\t"`：基本正则里 `\t` 不代表制表符，会全部匹配不到，看起来像是符号都没导出。
-
 ## 排错
 
 | 现象 | 原因 | 处理 |
@@ -392,7 +394,7 @@ done
 
 最后两条补充一句：老一些的内核里，缺少模块 BTF 会让注册函数返回错误、导致模块加载失败（而不是只告警）。6.18 改成了只告警。如果你编的是别的版本且加载失败，先去 `dmesg` 里确认有没有这条，再怀疑别的地方。
 
-## 补充：在 x64 上做真正的交叉编译
+## 补充：在 x64 上做真正的交叉编译（AI推演，未验证）
 
 不需要 qemu，也不需要 Docker，速度最快，适合反复迭代。
 
