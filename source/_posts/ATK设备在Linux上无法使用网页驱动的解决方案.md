@@ -23,7 +23,7 @@ date: 2026-01-27 07:01:38
 
 网上搜索了一通，发现~~我想要说的前人们都说过了~~有人已经踩过坑了：
 
-{% link Linux 下配置udev来实现chrome对于蜻蜓R1鼠标的访问::https://www.cnblogs.com/dingnosakura/p/18274600 %}
+[Linux 下配置udev来实现chrome对于蜻蜓R1鼠标的访问](https://www.cnblogs.com/dingnosakura/p/18274600)
 
 按照里面的`修改USB/HID设备权限`部分临时测试了一下，发现确实是设备权限的问题，修改为可写之后就能正常使用了，于是准备用里面提供的方法来将配置持久化。然而，进行到`添加当前用户到plugdev组`这一步时，我发现我当前的ArchLinux并没有`plugdev`这个组。抱着怀疑的心态查了一下ArchWiki，果然发现有问题：
 
