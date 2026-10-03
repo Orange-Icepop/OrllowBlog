@@ -33,6 +33,12 @@ date: 2026-01-27 07:01:38
 
 （这次我查的ArchWiki是`archlinux.org.cn`，因为`archlinuxcn.org`的这一部分没有汉化。）
 
+{% note warning %}
+
+非systemd用户，或者`systemd-logind`被禁用的情况下此方法**无效**。
+
+{% endnote %}
+
 原帖作者用的是基于Arch衍生的Manjaro，采取的却是这种不被建议的做法，因此我认为有必要予以纠正。
 
 ## 适用于Arch系Linux的方法
@@ -66,8 +72,40 @@ ACTION!="remove", KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="vend
 
 在最终的配置文件中，我们添加了`KERNEL`和`SUBSYSTEM`两个额外匹配条件，这样可以避免匹配到别的什么设备上。
 
+立即生效：
+
+``` bash
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+
 至此，就可以在开机后直接使用ATK网页驱动了。
 
 ## Wine客户端？
 
 有人可能会尝试使用wine来运行ATK HUB客户端，直接连接到键盘，但是我实际测试之后发现不行。Windows和Linux的USB设备API是截然不同的，Wine没有向应用程序暴露HID接口，更没有尝试模拟Windows的USB设备API，而这正是ATK HUB识别和操作设备的基础。因此，ATK HUB会直接找不到任何ATK设备。
+
+## 为任意设备添加uaccess标签
+
+当你有很多设备需要放开该权限时，逐个为设备添加这个规则就太繁琐了。幸好，我们有一个方法能够在几乎不损害任何安全性的情况下放开所有设备的hidraw权限。
+
+```ini /etc/udev/rules.d/71-hidraw-all.rules
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", TAG+="uaccess"
+```
+
+此处取消了上文的ID限制，表示为允许当前物理机登录的桌面用户访问所有hidraw子系统的设备。这些设备还包括支持hidraw的蓝牙设备，实测罗技的无线鼠标也能正常识别。
+
+{% note info %}
+
+## 安全性与工作原理
+
+关于为什么这种方式仍然能够保证安全性，ArchWiki讲的可能不够直白。
+
+udev规则的唯一作用是，给符合上述规则的设备打一个标签，内容是`uaccess`。`systemd-logind`在用户触发会话更改（例如，从登录界面进入桌面）时，扫描了所有的udev设备。如果设备有`uaccess`这个标签，那么检查会话属性是否完全满足下列要求：
+
+- `Class == user`：这只有在桌面用户已经登录的情况下才会符合。如果在登录界面，值则是`greeter`；锁屏时是`lock-screen`（注意不同的DE/WM可能会有不同的锁屏行为）；对于后台会话是`background`。
+- `Remote == no`：排除了ssh会话。
+- `State == active`：在几个虚拟终端（指VT或`tty`，不包括`pty`）之间切换时，logind会自动将移出的那个VT会话设置为`inactive`。
+
+这共同保证了，只有严格满足“本地桌面环境/VT用户已登录且未锁屏”的条件，该用户才会被logind通过ACL授予权限。
+
+{% endnote %}
