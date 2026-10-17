@@ -67,13 +67,12 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo update-grub
 ```
 
-在 EndeavourOS 等 Arch 系发行版上，这个配置项已经被验证有效。CachyOS 社区也确认，GRUB 2.16 的 BootNext 条目可以通过 `GRUB_DISABLE_BOOTNEXT=true` 来禁用。
+在 Arch 系发行版上，这个配置项已经被验证有效。
 
 **需要注意的几个点：**
 
 - 如果你同时需要保留 Windows 的 `os-prober` 条目，不要设置 `GRUB_DISABLE_OS_PROBER=true`，否则 Windows 启动项也会一起消失。
 - 在 EndeavourOS 的讨论中，有用户将 `GRUB_DISABLE_BOOTNEXT=true` 和 `GRUB_DISABLE_UEFI_FIRMWARE=true` 一起添加。后者还会隐藏 UEFI 固件设置菜单项，视你的需要决定是否添加。
-- 每次 GRUB 升级后，如果 `/etc/default/grub` 被覆盖（可能性比较小），可能需要重新添加这行配置。
 
 ### 方法二：用 `efibootmgr` 彻底删除残留条目
 
