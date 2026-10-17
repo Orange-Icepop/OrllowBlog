@@ -74,9 +74,9 @@ ArchLinux不管内核是什么版本，`/boot`里的`initramfs`镜像和内核�
 
 {% endnote %}
 
-{% note warning %}
+{% note danger %}
 
-使用GRUB引导时请注意，GRUB虽然支持从Btrfs子卷内的内核启动，但是其探测效率极低，将视启动条目中位于Btrfs内的项目数量使启动时间增加1至2秒。
+目前只有Grub能够较好地从btrfs子卷内的vmlinuz镜像启动，并且速度将下降1至2秒。如果对启动速度有要求，不建议进行本文所描述的操作。
 
 {% endnote %}
 
