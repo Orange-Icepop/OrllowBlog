@@ -1,6 +1,5 @@
 ---
-title: Linux个人AUR,GitHub,Flatpak加速进阶配置
-date: 2026-10-23T08:31:31+08:00
+title: 'Linux个人AUR,GitHub,Flatpak加速进阶配置'
 categories:
   - 系统
 tags:
@@ -11,6 +10,8 @@ tags:
   - AUR
   - Flatpak
   - GitHub
+abbrlink: e6260061
+date: 2026-10-23 00:31:31
 ---
 
 在使用Linux时，虽然各大国内镜像已经可以覆盖大多数使用场景，但是部分场景仍然依赖不稳定的代理，甚至必须直连。对此，需要一些更加激进的手段。本文将结合个人解决方案，介绍针对AUR、GitHub与Flatpak的加速配置。
