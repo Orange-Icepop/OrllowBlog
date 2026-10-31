@@ -41,7 +41,7 @@ Unless otherwise expressly permitted in writing by Cloudflare, you will not and 
 
 翻译：除非经过CF特别允许，否则你无权用CF的服务提供虚拟私有网络（VPN）或其他类似的代理服务。
 
-网上众说纷纭，都说用CF做加速被禁了，但是我认为其实并没有。很有说服力的解释是，CF别有用心地把VPN和代理放在了一起，而VPN的核心是“虚拟”和“私有”，Workers上的API端点是公开的、面向所有用户的，并且也没有“构建专有访问通道”的属性，只是简单地转发了资源请求，没有进行额外加密等试图构建私有网络的行为，可以作为抗辩的理由。否则，CF自己的王牌反代业务直接被纳入了默认禁止的范畴，这很显然不是CF的意思。CF的本意应该是让要玩VPN的人去用WARP，而不是浪费Workers的资源做这种无意义的事情，更有可能是为了防止Workers业务被大手肘击。
+网上众说纷纭，都说用CF做加速被禁了，但是我认为其实并没有。代理和反代的边界在这个场景下很模糊，为此，CF别有用心地把VPN作为此处“代理”的例子，说明此条款的核心约束是VPN的“虚拟”和“私有”属性。反观我们的情况，Workers上的API端点是公开的、面向所有用户的，并且也没有“构建专有访问通道”的属性，只是简单地转发了资源请求，没有进行额外加密等试图构建私有网络的行为，自然不属于该条款主要的约束范围。CF的本意应该是让要玩VPN的人去用WARP，而不是浪费Workers的资源做这种无意义的事情。当然，也有可能是为了防止Workers业务被大手肘击（WARP已经被肘击过了hh）。
 
 至于社区里那些广为流传的封号事件，多数是因为反代没有给登录页面加黑名单，导致被安全公司的扫描器误认为是钓鱼网站导致的。对此，下述的两个项目均做了白名单来预防。为了防止被境外服务器扫描，还同时建议在Cloudflare的`域名-安全性-安全规则`中针对这些域名开启一个过滤器，禁止非中国大陆地区的IP访问。
 
@@ -84,7 +84,7 @@ GET  https://aur.archlinux.org/<pkgbase>/info/refs?service=git-upload-pack
 POST https://aur.archlinux.org/<pkgbase>/git-upload-pack
 ```
 
-后者是通过RPC来应答`paru -Ss`等操作的端点。RPC端点可以使用[goaurrpc](https://github.com/moson-mo/goaurrpc)项目来自行实现，但是需要解决的不只是RPC端点，这使得反代方案仍然具有更大的可行性。
+后者是通过RPC来应答`paru -Ss`等操作的端点。虽然RPC端点可以使用[goaurrpc](https://github.com/moson-mo/goaurrpc)项目来自行实现，但是需要解决的不只是RPC端点，这使得反代方案仍然具有更大的可行性。
 
 我编写了一个[Cloudflare Workers项目](https://github.com/Orange-Icepop/CF-Aur-Acc)来实现反代加速，可以直接部署到Cloudflare上。项目已经做好了白名单限制。然后，根据README里的介绍，把你的AUR助手的配置做出对应修改，就能够加速AUR PKGBUILD下载和RPC请求啦～
 
